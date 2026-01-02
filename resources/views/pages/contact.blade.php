@@ -14,18 +14,19 @@
                 <div class="contact-hero-text">
                     <h1 class="contact-hero-title">Contact us now!</h1>
                     <p class="contact-hero-subtitle">Get in touch with our team for all your consumer electronics needs</p>
+                    <a href="https://dutch-fix.com/wp-content/uploads/2025/03/Price.pdf" target="_blank" class="price-list-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        <span>Price list</span>
+                    </a>
                 </div>
             </div>
             <div class="contact-hero-right">
-                <a href="https://dutch-fix.com/wp-content/uploads/2025/03/Price.pdf" target="_blank" class="price-list-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14,2 14,8 20,8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                    </svg>
-                    <span>Price list</span>
-                </a>
+                <!-- Right side content can be used for additional elements or left empty -->
             </div>
         </div>
     </div>
@@ -77,15 +78,27 @@
                     @csrf
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-input" value="{{ old('name') }}" placeholder="Your Name" required>
+                            <label for="name" class="form-label">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Full Name
+                            </label>
+                            <input type="text" id="name" name="name" class="form-input" value="{{ old('name') }}" placeholder="John Doe" required>
                             @error('name')
                                 <span class="error-message">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" value="{{ old('email') }}" placeholder="your@email.com" required>
+                            <label for="email" class="form-label">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                                Email Address
+                            </label>
+                            <input type="email" id="email" name="email" class="form-input" value="{{ old('email') }}" placeholder="john@example.com" required>
                             @error('email')
                                 <span class="error-message">{{ $message }}</span>
                             @enderror
@@ -94,14 +107,24 @@
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="phone" class="form-label">Phone</label>
+                            <label for="phone" class="form-label">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                                Phone Number
+                            </label>
                             <input type="tel" id="phone" name="phone" class="form-input" value="{{ old('phone') }}" placeholder="+31 6 87 06 26 26" pattern="[0-9\s\-]{3,17}" title="Only numbers allowed. Minimum length: 3 characters. Maximum length: 17 characters." maxlength="17" required>
                             @error('phone')
                                 <span class="error-message">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="subject" class="form-label">Subject</label>
+                            <label for="subject" class="form-label">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                </svg>
+                                Subject
+                            </label>
                             <input type="text" id="subject" name="subject" class="form-input" value="{{ old('subject') }}" placeholder="How can we help?" required>
                             @error('subject')
                                 <span class="error-message">{{ $message }}</span>
@@ -110,8 +133,16 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="message" class="form-label">Message (optional)</label>
-                        <textarea id="message" name="message" class="form-textarea" placeholder="Tell us more about your needs...">{{ old('message') }}</textarea>
+                        <label for="message" class="form-label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                            Message
+                        </label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Tell us more about your needs and requirements...">{{ old('message') }}</textarea>
                         @error('message')
                             <span class="error-message">{{ $message }}</span>
                             @enderror
