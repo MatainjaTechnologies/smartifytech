@@ -1,0 +1,45 @@
+/* WhatsApp Button - Standalone CSS */
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 60px !important;
+    height: 60px !important;
+    background: #25D366 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3) !important;
+    transition: transform 0.3s ease !important;
+    cursor: pointer !important;
+    border: none !important;
+    outline: none !important;
+    z-index: 999999 !important;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
+}
+
+.whatsapp-float svg {
+    width: 30px !important;
+    height: 30px !important;
+    pointer-events: none !important;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 15px !important;
+        right: 15px !important;
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .whatsapp-float svg {
+        width: 25px !important;
+        height: 25px !important;
+    }
+}
