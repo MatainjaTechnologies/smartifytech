@@ -18,27 +18,27 @@
             </div>
             <div class="step-item" data-step="2">
                 <div class="step-number">2</div>
-                <div class="step-title">Company Details</div>
+                <div class="step-title">Bank Details</div>
             </div>
             <div class="step-item" data-step="3">
                 <div class="step-number">3</div>
-                <div class="step-title">Business Information</div>
+                <div class="step-title">References</div>
             </div>
             <div class="step-item" data-step="4">
                 <div class="step-number">4</div>
-                <div class="step-title">Contact Persons</div>
+                <div class="step-title">Authorization</div>
             </div>
             <div class="step-item" data-step="5">
                 <div class="step-number">5</div>
-                <div class="step-title">Documents</div>
+                <div class="step-title">Traders/Brokers</div>
             </div>
             <div class="step-item" data-step="6">
                 <div class="step-number">6</div>
-                <div class="step-title">Terms & Conditions</div>
+                <div class="step-title">Supply Documents</div>
             </div>
             <div class="step-item" data-step="7">
                 <div class="step-number">7</div>
-                <div class="step-title">Final Review</div>
+                <div class="step-title">Terms & Conditions</div>
             </div>
         </div>
         
@@ -77,54 +77,6 @@
                                 <input type="tel" id="phone" name="phone" class="form-input" placeholder="Phone number" required>
                             </div>
                             <div class="form-group">
-                                <label for="type" class="form-label">Type *</label>
-                                <select id="type" name="type" class="form-input" required>
-                                    <option value="">Select Type</option>
-                                    <option value="supplier">Supplier</option>
-                                    <option value="client">Client</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="general_info" class="form-label">General information</label>
-                                <textarea id="general_info" name="general_info" class="form-textarea" placeholder="General information"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 2: Company Details -->
-                    <div class="form-step" data-step="2">
-                        <div class="step-header">
-                            <h3>Company details</h3>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="bank_name" class="form-label">Bank Name *</label>
-                                <input type="text" id="bank_name" name="bank_name" class="form-input" placeholder="Bank name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="iban" class="form-label">IBAN *</label>
-                                <input type="text" id="iban" name="iban" class="form-input" placeholder="IBAN" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="swift" class="form-label">SWIFT/BIC *</label>
-                                <input type="text" id="swift" name="swift" class="form-input" placeholder="SWIFT/BIC" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="account_holder" class="form-label">Account holder name *</label>
-                                <input type="text" id="account_holder" name="account_holder" class="form-input" placeholder="Account holder name" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 3: Business Information -->
-                    <div class="form-step" data-step="3">
-                        <div class="step-header">
-                            <h3>Business information</h3>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
                                 <label for="type_of_business" class="form-label">Type of business *</label>
                                 <input type="text" id="type_of_business" name="type_of_business" class="form-input" placeholder="Business type" required>
                             </div>
@@ -156,9 +108,6 @@
                                 <label for="accountant_email" class="form-label">Accountant email address *</label>
                                 <input type="email" id="accountant_email" name="accountant_email" class="form-input" placeholder="Accountant email" required>
                             </div>
-                        </div>
-                        
-                        <div class="form-row">
                             <div class="form-group">
                                 <label for="company_reg_no" class="form-label">Company registration NO. *</label>
                                 <input type="text" id="company_reg_no" name="company_reg_no" class="form-input" placeholder="Registration NO." required>
@@ -178,88 +127,235 @@
                         </div>
                     </div>
                     
-                    <!-- Step 4: Contact Persons -->
-                    <div class="form-step" data-step="4">
+                    <!-- Step 2: Bank Details -->
+                    <div class="form-step" data-step="2">
                         <div class="step-header">
-                            <h3>Contact persons</h3>
+                            <h3>Bank details</h3>
                         </div>
                         
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bank_name" class="form-label">Name of bank *</label>
+                                <input type="text" id="bank_name" name="bank_name" class="form-input" placeholder="Bank name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="iban" class="form-label">IBAN *</label>
+                                <input type="text" id="iban" name="iban" class="form-input" placeholder="IBAN" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bank_address" class="form-label">Address *</label>
+                                <input type="text" id="bank_address" name="bank_address" class="form-input" placeholder="Bank address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="swift" class="form-label">SWIFT *</label>
+                                <input type="text" id="swift" name="swift" class="form-input" placeholder="SWIFT" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country_of_bank" class="form-label">Country of bank *</label>
+                                <input type="text" id="country_of_bank" name="country_of_bank" class="form-input" placeholder="Country" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="account_holder" class="form-label">Account holder *</label>
+                                <input type="text" id="account_holder" name="account_holder" class="form-input" placeholder="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bank_phone" class="form-label">Phone number *</label>
+                                <input type="tel" id="bank_phone" name="bank_phone" class="form-input" placeholder="06" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="years_with_bank" class="form-label">Number of years with bank *</label>
+                                <input type="number" id="years_with_bank" name="years_with_bank" class="form-input" placeholder="Years" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: References -->
+                    <div class="form-step" data-step="3">
+                        <div class="step-header">
+                            <h3>References</h3>
+                            <p>Possible trading platforms</p>
+                        </div>
+                        <div class="person-section">
+                            <h4>TRADE REFERENCE 1</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="ref1_bank_name" class="form-label">Name of bank</label>
+                                    <input type="text" id="ref1_bank_name" name="ref1_bank_name" class="form-input" placeholder="Bank name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ref1_address" class="form-label">Address</label>
+                                    <input type="text" id="ref1_address" name="ref1_address" class="form-input" placeholder="Bank address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ref1_phone" class="form-label">Phone number</label>
+                                    <input type="tel" id="ref1_phone" name="ref1_phone" class="form-input" placeholder="06">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ref1_name" class="form-label">Name and Surname</label>
+                                    <input type="text" id="ref1_name" name="ref1_name" class="form-input" placeholder="Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="person-section">
+                            <h4>TRADE REFERENCE 2</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="ref2_bank_name" class="form-label">Name of bank</label>
+                                    <input type="text" id="ref2_bank_name" name="ref2_bank_name" class="form-input" placeholder="Bank name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ref2_address" class="form-label">Address</label>
+                                    <input type="text" id="ref2_address" name="ref2_address" class="form-input" placeholder="Bank address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ref2_phone" class="form-label">Phone number</label>
+                                    <input type="tel" id="ref2_phone" name="ref2_phone" class="form-input" placeholder="06">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ref2_name" class="form-label">Name and Surname</label>
+                                    <input type="text" id="ref2_name" name="ref2_name" class="form-input" placeholder="Name">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Authorization for online and phone orders -->
+                    <div class="form-step" data-step="4">
+                        <div class="step-header">
+                            <h3>Authorization for online and phone orders</h3>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">E-mail orders allowed *</label>
+                            <div class="form-radio">
+                                <label><input type="radio" name="email_orders" value="no" required> No</label>
+                                <label><input type="radio" name="email_orders" value="yes" required> Yes</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone orders allowed *</label>
+                            <div class="form-radio">
+                                <label><input type="radio" name="phone_orders" value="no" required> No</label>
+                                <label><input type="radio" name="phone_orders" value="yes" required> Yes</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Telephone orders allowed *</label>
+                            <div class="form-radio">
+                                <label><input type="radio" name="telephone_orders" value="no" required> No</label>
+                                <label><input type="radio" name="telephone_orders" value="yes" required> Yes</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">WhatsApp orders allowed *</label>
+                            <div class="form-radio">
+                                <label><input type="radio" name="whatsapp_orders" value="no" required> No</label>
+                                <label><input type="radio" name="whatsapp_orders" value="yes" required> Yes</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Traders / Contact for sale & purchase / Brokers -->
+                    <div class="form-step" data-step="5">
+                        <div class="step-header">
+                            <h3>Traders / Contact for sale & purchase / Brokers who are allowed for orders</h3>
+                        </div>
                         <div class="person-section">
                             <h4>Person 1</h4>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="contact1_name" class="form-label">Name *</label>
-                                    <input type="text" id="contact1_name" name="contact1_name" class="form-input" placeholder="Name" required>
+                                    <label for="trader1_name" class="form-label">First & last name *</label>
+                                    <input type="text" id="trader1_name" name="trader1_name" class="form-input" placeholder="Name" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="contact1_phone" class="form-label">Phone *</label>
-                                    <input type="tel" id="contact1_phone" name="contact1_phone" class="form-input" placeholder="Phone" required>
+                                    <label for="trader1_phone" class="form-label">Phone number *</label>
+                                    <input type="tel" id="trader1_phone" name="trader1_phone" class="form-input" placeholder="Phone" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="contact1_email" class="form-label">Email *</label>
-                                    <input type="email" id="contact1_email" name="contact1_email" class="form-input" placeholder="Email" required>
+                                    <label for="trader1_email" class="form-label">Email address *</label>
+                                    <input type="email" id="trader1_email" name="trader1_email" class="form-input" placeholder="Email" required>
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="person-section">
                             <h4>Person 2</h4>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="contact2_name" class="form-label">Name</label>
-                                    <input type="text" id="contact2_name" name="contact2_name" class="form-input" placeholder="Name">
+                                    <label for="trader2_name" class="form-label">First & last name</label>
+                                    <input type="text" id="trader2_name" name="trader2_name" class="form-input" placeholder="Name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="contact2_phone" class="form-label">Phone</label>
-                                    <input type="tel" id="contact2_phone" name="contact2_phone" class="form-input" placeholder="Phone">
+                                    <label for="trader2_skype" class="form-label">Skype ID</label>
+                                    <input type="text" id="trader2_skype" name="trader2_skype" class="form-input" placeholder="Skype">
                                 </div>
                                 <div class="form-group">
-                                    <label for="contact2_email" class="form-label">Email</label>
-                                    <input type="email" id="contact2_email" name="contact2_email" class="form-input" placeholder="Email">
+                                    <label for="trader2_phone" class="form-label">Phone number</label>
+                                    <input type="tel" id="trader2_phone" name="trader2_phone" class="form-input" placeholder="Phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="trader2_email" class="form-label">Email address</label>
+                                    <input type="email" id="trader2_email" name="trader2_email" class="form-input" placeholder="Email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="person-section">
+                            <h4>Person 3</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="trader3_name" class="form-label">First & last name</label>
+                                    <input type="text" id="trader3_name" name="trader3_name" class="form-input" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="trader3_skype" class="form-label">Skype ID</label>
+                                    <input type="text" id="trader3_skype" name="trader3_skype" class="form-input" placeholder="Skype">
+                                </div>
+                                <div class="form-group">
+                                    <label for="trader3_phone" class="form-label">Phone number</label>
+                                    <input type="tel" id="trader3_phone" name="trader3_phone" class="form-input" placeholder="Phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="trader3_email" class="form-label">Email address</label>
+                                    <input type="email" id="trader3_email" name="trader3_email" class="form-input" placeholder="Email">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Step 5: Documents -->
-                    <div class="form-step" data-step="5">
-                        <div class="step-header">
-                            <h3>Documents</h3>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company_incorporation" class="form-label">Company Incorporation Certificate *</label>
-                            <input type="file" id="company_incorporation" name="company_incorporation" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="vat_certificate" class="form-label">VAT Certificate *</label>
-                                <input type="file" id="vat_certificate" name="vat_certificate" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="completed_references" class="form-label">Completed references and company representatives *</label>
-                                <input type="file" id="completed_references" name="completed_references" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="bank_account_details" class="form-label">Bank Account Details *</label>
-                                <input type="file" id="bank_account_details" name="bank_account_details" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="utility_bill" class="form-label">Copy of recent utility bill (Electric/Water/Gas/Landline Telephone) *</label>
-                                <input type="file" id="utility_bill" name="utility_bill" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="director_id" class="form-label">Director ID document *</label>
-                                <input type="file" id="director_id" name="director_id" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 6: Terms & Conditions -->
+
+                    <!-- Step 6: IMPORTANT - PLEASE SUPPLY THE FOLLOWING: -->
                     <div class="form-step" data-step="6">
+                        <div class="step-header">
+                            <h3>IMPORTANT - PLEASE SUPPLY THE FOLLOWING:</h3>
+                        </div>
+                        <div class="form-group">
+                            <label for="company_incorporation_cert" class="form-label">Company Incorporation Certificate *</label>
+                            <input type="file" id="company_incorporation_cert" name="company_incorporation_cert" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vat_cert" class="form-label">VAT Certificate *</label>
+                            <input type="file" id="vat_cert" name="vat_cert" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="completed_refs" class="form-label">Completed references and company representatives *</label>
+                            <input type="file" id="completed_refs" name="completed_refs" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bank_details_cert" class="form-label">Bank Account Details *</label>
+                            <input type="file" id="bank_details_cert" name="bank_details_cert" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="utility_bill_copy" class="form-label">Copy of recent utility bill (Electric/Water/Gas/Landline Telephone) *</label>
+                            <input type="file" id="utility_bill_copy" name="utility_bill_copy" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="director_id_doc" class="form-label">Director ID document *</label>
+                            <input type="file" id="director_id_doc" name="director_id_doc" class="form-input" accept=".pdf,.jpg,.jpeg,.png" required>
+                        </div>
+                    </div>
+
+                    <!-- Step 7: Terms & Conditions -->
+                    <div class="form-step" data-step="7">
                         <div class="step-header">
                             <h3>Terms and Conditions</h3>
                         </div>
-                        
                         <div class="terms-content">
                             <h4>Agreement to Company's Terms and Conditions</h4>
                             <div class="terms-text">
@@ -270,7 +366,6 @@
                                 <p>5. For comprehensive details regarding the Company's practices on collecting, processing, storing, and retaining personal data-including the purposes for which the data is used, the legal grounds for its use, the rights of the individual, and any applicable data sharing-please consult the Company's Privacy notice available upon request.</p>
                             </div>
                         </div>
-                        
                         <div class="form-group">
                             <label class="form-label">Do you agree to the Company's Terms and Conditions?</label>
                             <div class="form-radio">
@@ -279,24 +374,28 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Step 7: Final Review -->
-                    <div class="form-step" data-step="7">
+
+                    <!-- Step 8: Final Review -->
+                    <div class="form-step" data-step="8">
                         <div class="step-header">
                             <h3>Final Review</h3>
                             <p>Please review all information before submitting your application.</p>
                         </div>
-                        
+
                         <div class="progress-indicator">
-                            <div class="progress-step" data-step="1">✓</div>
-                            <div class="progress-step" data-step="2">✓</div>
-                            <div class="progress-step" data-step="3">✓</div>
-                            <div class="progress-step" data-step="4">✓</div>
-                            <div class="progress-step" data-step="5">✓</div>
-                            <div class="progress-step" data-step="6">✓</div>
+                            <ul>
+                                <li class="progress-step" data-step="1">✓</li>
+                                <li class="progress-step" data-step="2">✓</li>
+                                <li class="progress-step" data-step="3">✓</li>
+                                <li class="progress-step" data-step="4">✓</li>
+                                <li class="progress-step" data-step="5">✓</li>
+                                <li class="progress-step" data-step="6">✓</li>
+                                <li class="progress-step" data-step="7">✓</li>
+                                <li class="progress-step" data-step="8">✓</li>
+                            </ul>
                         </div>
                     </div>
-                    
+
                     <!-- Navigation Buttons -->
                     <div class="form-navigation">
                         <button type="button" class="btn-prev" id="prevBtn" style="display: none;">Previous</button>

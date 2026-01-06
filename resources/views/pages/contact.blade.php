@@ -45,7 +45,7 @@
                     </svg>
                 </div>
                 <h3 class="supplier-title">Supplier</h3>
-                <a href="https://dutch-fix.com/register/" target="_blank" class="supplier-btn">Download List</a>
+                <a href="{{ route('register') }}" target="_blank" class="supplier-btn">Download List</a>
             </div>
             
             <div class="client-card">
@@ -58,7 +58,7 @@
                     </svg>
                 </div>
                 <h3 class="client-title">Client</h3>
-                <a href="https://dutch-fix.com/register/" target="_blank" class="client-btn">Download list</a>
+                <a href="{{ route('register') }}" target="_blank" class="client-btn">Download list</a>
             </div>
         </div>
     </div>

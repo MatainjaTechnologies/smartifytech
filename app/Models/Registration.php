@@ -16,17 +16,17 @@ class Registration extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'type',
-        'company',
-        'contact_person',
-        'email',
-        'phone',
-        'address',
-        'industry',
-        'services_offered',
-        'service_requirements',
-        'experience',
-        'terms_accepted',
+        'email', 'password', 'company_name', 'phone', 'type_of_business', 'legal_entity',
+        'ceo_name', 'website', 'invoice_address', 'delivery_address', 'accountant_name',
+        'accountant_email', 'company_reg_no', 'vat_reg_no', 'num_employees', 'date_registration',
+        'bank_name', 'iban', 'bank_address', 'swift', 'country_of_bank', 'account_holder',
+        'bank_phone', 'years_with_bank', 'ref1_bank_name', 'ref1_address', 'ref1_phone',
+        'ref1_name', 'ref2_bank_name', 'ref2_address', 'ref2_phone', 'ref2_name',
+        'email_orders', 'phone_orders', 'telephone_orders', 'whatsapp_orders',
+        'trader1_name', 'trader1_phone', 'trader1_email', 'trader2_name', 'trader2_skype',
+        'trader2_phone', 'trader2_email', 'trader3_name', 'trader3_skype', 'trader3_phone',
+        'trader3_email', 'company_incorporation_cert', 'vat_cert', 'completed_refs',
+        'bank_details_cert', 'utility_bill_copy', 'director_id_doc', 'agree_terms',
     ];
 
     /**

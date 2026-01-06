@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,6 @@ Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 Route::get('/register', [PagesController::class, 'register'])->name('register');
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
-Route::post('/register', [ContactController::class, 'registerSubmit'])->name('register.submit');
+Route::post('/register', [RegistrationController::class, 'store'])->name('register.submit');
 Route::post('/register/supplier', [ContactController::class, 'registerSupplier'])->name('register.supplier');
 Route::post('/register/client', [ContactController::class, 'registerClient'])->name('register.client');

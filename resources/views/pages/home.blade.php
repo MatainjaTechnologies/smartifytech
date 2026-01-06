@@ -3,6 +3,12 @@
 @section('title', 'Smartify Tech')
 
 @section('content')
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <!-- Modern Hero Section -->
 <section class="hero-section" style="background-color: white;">
     <div class="hero-container">
