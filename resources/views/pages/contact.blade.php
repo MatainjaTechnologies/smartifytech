@@ -12,8 +12,8 @@
                     <img src="{{ asset('images/logo.png') }}" alt="Smartify Tech Logo" class="contact-logo-img">
                 </div>
                 <div class="contact-hero-text">
-                    <h1 class="contact-hero-title">Contact us now!</h1>
-                    <p class="contact-hero-subtitle">Get in touch with our team for all your consumer electronics needs</p>
+                    <h1 class="contact-hero-title">{{ __('messages.contact_hero_title') }}</h1>
+                    <p class="contact-hero-subtitle">{{ __('messages.contact_hero_subtitle') }}</p>
                     <a href="https://dutch-fix.com/wp-content/uploads/2025/03/Price.pdf" target="_blank" class="price-list-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -21,7 +21,7 @@
                             <line x1="16" y1="13" x2="8" y2="13"/>
                             <line x1="16" y1="17" x2="8" y2="17"/>
                         </svg>
-                        <span>Price list</span>
+                        <span>{{ __('messages.price_list') }}</span>
                     </a>
                 </div>
             </div>
@@ -44,8 +44,8 @@
                         <line x1="12" y1="22.08" x2="12" y2="12"/>
                     </svg>
                 </div>
-                <h3 class="supplier-title">Supplier</h3>
-                <a href="{{ route('register') }}" target="_blank" class="supplier-btn">Download List</a>
+                <h3 class="supplier-title">{{ __('messages.supplier') }}</h3>
+                <a href="{{ route('register') }}" target="_blank" class="supplier-btn">{{ __('messages.download_list') }}</a>
             </div>
             
             <div class="client-card">
@@ -57,8 +57,8 @@
                         <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                     </svg>
                 </div>
-                <h3 class="client-title">Client</h3>
-                <a href="{{ route('register') }}" target="_blank" class="client-btn">Download list</a>
+                <h3 class="client-title">{{ __('messages.client') }}</h3>
+                <a href="{{ route('register') }}" target="_blank" class="client-btn">{{ __('messages.download_list') }}</a>
             </div>
         </div>
     </div>
@@ -69,8 +69,8 @@
     <div class="contact-form-container">
         <div class="contact-form-content">
             <div class="contact-form-header">
-                <h2 class="contact-form-title">Get in Touch</h2>
-                <p class="contact-form-subtitle">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                <h2 class="contact-form-title">{{ __('messages.get_in_touch') }}</h2>
+                <p class="contact-form-subtitle">{{ __('messages.get_in_touch_subtitle') }}</p>
             </div>
             
             <div class="contact-form-wrapper">
@@ -83,7 +83,7 @@
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                                     <circle cx="12" cy="7" r="4"/>
                                 </svg>
-                                Full Name
+                                {{ __('messages.full_name') }}
                             </label>
                             <input type="text" id="name" name="name" class="form-input" value="{{ old('name') }}" placeholder="John Doe" required>
                             @error('name')
@@ -96,7 +96,7 @@
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                     <polyline points="22,6 12,13 2,6"/>
                                 </svg>
-                                Email Address
+                                {{ __('messages.email_address') }}
                             </label>
                             <input type="email" id="email" name="email" class="form-input" value="{{ old('email') }}" placeholder="john@example.com" required>
                             @error('email')
@@ -111,7 +111,7 @@
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                                 </svg>
-                                Phone Number
+                                {{ __('messages.phone_number') }}
                             </label>
                             <input type="tel" id="phone" name="phone" class="form-input" value="{{ old('phone') }}" placeholder="+31 6 87 06 26 26" pattern="[0-9\s\-]{3,17}" title="Only numbers allowed. Minimum length: 3 characters. Maximum length: 17 characters." maxlength="17" required>
                             @error('phone')
@@ -123,7 +123,7 @@
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                                 </svg>
-                                Subject
+                                {{ __('messages.subject') }}
                             </label>
                             <input type="text" id="subject" name="subject" class="form-input" value="{{ old('subject') }}" placeholder="How can we help?" required>
                             @error('subject')
@@ -140,7 +140,7 @@
                                 <line x1="16" y1="13" x2="8" y2="13"/>
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
-                            Message
+                            {{ __('messages.message') }}
                         </label>
                         <textarea id="message" name="message" class="form-textarea" placeholder="Tell us more about your needs and requirements...">{{ old('message') }}</textarea>
                         @error('message')
@@ -155,7 +155,7 @@
                                 <polygon points="22,2 15,22 11,13"/>
                                 <circle cx="11" cy="11" r="9"/>
                             </svg>
-                            <span>Send Message</span>
+                            <span>{{ __('messages.send_message') }}</span>
                         </button>
                     </div>
                 </form>
@@ -168,25 +168,25 @@
 <section class="office-location-section">
     <div class="office-location-container">
         <div class="office-location-header">
-            <h2 class="office-location-title">Visit Our Office</h2>
-            <p class="office-location-subtitle">Come visit us at our Rotterdam headquarters</p>
+            <h2 class="office-location-title">{{ __('messages.visit_office') }}</h2>
+            <p class="office-location-subtitle">{{ __('messages.visit_office_subtitle') }}</p>
         </div>
         
         <div class="office-location-content">
             <div class="office-map">
-                <iframe loading="lazy" width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&height=450&hl=en&q=Innsbruckweg%2096%20%203047%20AH%20Rotterdam+(DutchFix)&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe>
+                <iframe loading="lazy" width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&height=450&hl=en&q=Ringlaan+17a&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe>
             </div>
             
             <div class="office-info">
                 <div class="office-details">
-                    <h3 class="office-name">Dutchfix Service B.V.</h3>
+                    <h3 class="office-name">Smartify Tech B.V.</h3>
                     <div class="office-address">
-                        <p class="address-line">Innsbruckweg 96</p>
-                        <p class="address-line">3047 AH Rotterdam</p>
+                        <p class="address-line">Ringlaan 17A -2960</p>
+                        <p class="address-line">Brecht- Belgium</p>
                     </div>
                     <div class="office-contact">
-                        <p class="contact-email">Finance@dutch-fix.com</p>
-                        <p class="contact-phone">+31 6 87 06 26 26</p>
+                        <p class="contact-email">finance@smartify-tech.com</p>
+                        <p class="contact-phone">+32  465595848</p>
                     </div>
                 </div>
             </div>

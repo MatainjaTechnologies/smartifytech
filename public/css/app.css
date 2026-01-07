@@ -53,7 +53,7 @@ body .whatsapp-btn svg {
 .register-form-wrapper {
     max-width: 900px;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 30px 40px;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -1003,7 +1003,7 @@ small {
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    min-height: 100vh;
+    padding: 60px 0;
     display: flex;
     align-items: center;
     position: relative;
@@ -1141,7 +1141,7 @@ small {
 
 /* About Section */
 .about-section {
-    padding: 100px 0;
+    padding: 40px 0;
     background: #ffffff;
 }
 
@@ -1153,7 +1153,7 @@ small {
 
 .about-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .about-title {
@@ -1175,7 +1175,7 @@ small {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .about-image-card {
@@ -1217,50 +1217,104 @@ small {
 
 .about-features {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 40px;
+    justify-content: start;
+}
+
+@media (max-width: 992px) {
+    .about-features {
+        grid-template-columns: 1fr;
+    }
 }
 
 .feature-item {
     display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 30px;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
+    border: 1px solid rgba(108, 117, 125, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6c757d, #868e96);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .feature-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    border-color: rgba(108, 117, 125, 0.15);
+}
+
+.feature-item:hover::before {
+    opacity: 1;
 }
 
 .feature-icon {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #6c757d 0%, #868e96 100%);
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    flex-shrink: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 30px rgba(108, 117, 125, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.feature-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke-width: 2.5;
+}
+
+.feature-item:hover .feature-icon {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(108, 117, 125, 0.3);
 }
 
 .feature-text h4 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    color: #333;
-    margin-bottom: 5px;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
 }
 
 .feature-text p {
-    color: #666;
+    color: #6c757d;
     font-size: 0.95rem;
     margin: 0;
+    line-height: 1.5;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.feature-item:hover .feature-text h4 {
+    color: #495057;
+}
+
+.feature-item:hover .feature-text p {
+    color: #5a6268;
 }
 
 .about-gallery {
@@ -1572,7 +1626,7 @@ small {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -1622,12 +1676,12 @@ small {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(248, 249, 250, 0.5) 100%), url('https://dutch-fix.com/wp-content/uploads/2025/02/ss.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     background-attachment: fixed;
-    padding: 100px 0 80px;
+    display: flex;
+    align-items: center;
     position: relative;
     overflow: hidden;
-    min-height: 100vh;
+    padding: 60px 0;
 }
 
 .contact-hero::before {

@@ -19,12 +19,12 @@
                     <h1 class="hero-title">Smartify Tech</h1>
                 </div>
                 <div class="hero-description">
-                    <p class="hero-tagline">Your Trusted Partner in Consumer Electronics</p>
-                    <p class="hero-subtitle">Specialist wholesaler with 20+ years of experience serving B2B clients throughout Europe</p>
+                    <p class="hero-tagline">{{ __('messages.hero_tagline') }}</p>
+                    <p class="hero-subtitle">{{ __('messages.hero_subtitle') }}</p>
                 </div>
                 <div class="hero-actions">
-                    <a href="{{ route('contact') }}" class="btn-primary">Contact Us</a>
-                    <a href="{{ route('register') }}" class="btn-secondary">Register Now</a>
+                    <a href="{{ route('contact') }}" class="btn-primary">{{ __('messages.contact_us') }}</a>
+                    <a href="{{ route('register') }}" class="btn-secondary">{{ __('messages.register_now') }}</a>
                 </div>
             </div>
             <div class="hero-right">
@@ -40,7 +40,7 @@
 <section class="about-section">
     <div class="about-container">
         <div class="about-header">
-            <h2 class="about-title">About Us</h2>
+            <h2 class="about-title">{{ __('messages.about_us') }}</h2>
             <div class="about-divider"></div>
         </div>
         
@@ -54,11 +54,11 @@
             
             <div class="about-right">
                 <div class="about-text">
-                    <h3 class="about-heading">Our Passionate Team Will Take You To The Top</h3>
+                    <h3 class="about-heading">{{ __('messages.about_heading') }}</h3>
                     <div class="about-description">
-                        <p>DutchFix Service is a specialist wholesaler in consumer electronics such as mobile phones, tablets, gaming, mobile accessories and household appliances.</p>
-                        <p>Our more than 20 years of experience in this branch, we are a trusted partner for our suppliers as well as for our customers throughout Europe. Our business segment is B2B.</p>
-                        <p>We have faith in long haul associations with our clients dependent on common trust and regard. Dependability is our most significant standard in business.</p>
+                        <p>{{ __('messages.about_p1') }}</p>
+                        <p>{{ __('messages.about_p2') }}</p>
+                        <p>{{ __('messages.about_p3') }}</p>
                     </div>
                 </div>
                 
@@ -70,8 +70,8 @@
                             </svg>
                         </div>
                         <div class="feature-text">
-                            <h4>20+ Years Experience</h4>
-                            <p>Trusted industry expertise</p>
+                            <h4>{{ __('messages.feature1_title') }}</h4>
+                            <p>{{ __('messages.feature1_desc') }}</p>
                         </div>
                     </div>
                     <div class="feature-item">
@@ -81,8 +81,8 @@
                             </svg>
                         </div>
                         <div class="feature-text">
-                            <h4>B2B Focus</h4>
-                            <p>Dedicated business solutions</p>
+                            <h4>{{ __('messages.feature2_title') }}</h4>
+                            <p>{{ __('messages.feature2_desc') }}</p>
                         </div>
                     </div>
                     <div class="feature-item">
@@ -94,8 +94,8 @@
                             </svg>
                         </div>
                         <div class="feature-text">
-                            <h4>European Reach</h4>
-                            <p>Serving clients across Europe</p>
+                            <h4>{{ __('messages.feature3_title') }}</h4>
+                            <p>{{ __('messages.feature3_desc') }}</p>
                         </div>
                     </div>
                 </div>
@@ -107,8 +107,8 @@
                 <img src="https://dutch-fix.com/wp-content/uploads/2025/02/ax1-scaled.jpg" alt="Diverse team brainstorming ideas on whiteboard" class="gallery-image">
                 <div class="gallery-overlay">
                     <div class="gallery-text">
-                        <h4>Expert Team</h4>
-                        <p>Professional and experienced staff</p>
+                        <h4>{{ __('messages.gallery_title') }}</h4>
+                        <p>{{ __('messages.gallery_desc') }}</p>
                     </div>
                 </div>
             </div>
@@ -120,11 +120,11 @@
 <section class="cta-section">
     <div class="cta-container">
         <div class="cta-content">
-            <h2 class="cta-title">Ready to Partner With Us?</h2>
-            <p class="cta-description">Join our network of trusted suppliers and clients across Europe</p>
+            <h2 class="cta-title">{{ __('messages.cta_title') }}</h2>
+            <p class="cta-description">{{ __('messages.cta_desc') }}</p>
             <div class="cta-actions">
-                <a href="{{ route('register') }}" class="btn-cta-primary">Get Started</a>
-                <a href="{{ route('contact') }}" class="btn-cta-secondary">Learn More</a>
+                <a href="{{ route('register') }}" class="btn-cta-primary">{{ __('messages.get_started') }}</a>
+                <a href="{{ route('contact') }}" class="btn-cta-secondary">{{ __('messages.learn_more') }}</a>
             </div>
         </div>
         <div class="cta-decoration">

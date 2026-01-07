@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\LocalizationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 Route::post('/register', [RegistrationController::class, 'store'])->name('register.submit');
 Route::post('/register/supplier', [ContactController::class, 'registerSupplier'])->name('register.supplier');
 Route::post('/register/client', [ContactController::class, 'registerClient'])->name('register.client');
+
+Route::get('lang/{locale}', [LocalizationController::class, 'setLang'])->name('lang.switch');

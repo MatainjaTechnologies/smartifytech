@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- WhatsApp Button - Inline Styles -->
-    <a href="https://api.whatsapp.com/send/?phone=31687062626&text&type=phone_number&app_absent=0" 
+    <a href="https://api.whatsapp.com/send/?phone=32465595848&text&type=phone_number&app_absent=0" 
        target="_blank" 
        title="Contact us on WhatsApp"
        style="position: fixed !important; bottom: 20px !important; right: 20px !important; width: 60px !important; height: 60px !important; background: #25D366 !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3) !important; transition: transform 0.3s ease !important; cursor: pointer !important; border: none !important; outline: none !important; z-index: 9999999 !important;">
@@ -28,23 +28,28 @@
                 </a>
             </div>
             <nav class="header-nav">
-                <a href="{{ route('home') }}" class="nav-link">About</a>
-                <a href="{{ route('contact') }}" class="nav-link">Contact</a>
-                <a href="{{ route('register') }}" class="nav-link">Register</a>
+                <a href="{{ route('home') }}" class="nav-link">{{ __('messages.About') }}</a>
+                <a href="{{ route('contact') }}" class="nav-link">{{ __('messages.Contact') }}</a>
+                <a href="{{ route('register') }}" class="nav-link">{{ __('messages.Register') }}</a>
                 <div class="lang-dropdown">
                     <button class="lang-btn">
-                        <img src="https://flagcdn.com/24x18/gb.png" alt="UK Flag" class="flag-icon">
-                        <span>EN</span>
+                        @if(session()->get('locale') == 'nl')
+                            <img src="https://flagcdn.com/24x18/nl.png" alt="NL Flag" class="flag-icon">
+                            <span>NL</span>
+                        @else
+                            <img src="https://flagcdn.com/24x18/gb.png" alt="UK Flag" class="flag-icon">
+                            <span>EN</span>
+                        @endif
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M6 9l6 6 6-6"/>
                         </svg>
                     </button>
                     <div class="lang-menu">
-                        <a href="#" class="lang-option active">
+                        <a href="{{ route('lang.switch', 'en') }}" class="lang-option {{ session()->get('locale') == 'en' ? 'active' : '' }}">
                             <img src="https://flagcdn.com/24x18/gb.png" alt="UK Flag">
                             <span>English</span>
                         </a>
-                        <a href="#" class="lang-option">
+                        <a href="{{ route('lang.switch', 'nl') }}" class="lang-option {{ session()->get('locale') == 'nl' ? 'active' : '' }}">
                             <img src="https://flagcdn.com/24x18/nl.png" alt="NL Flag">
                             <span>Nederlands</span>
                         </a>
