@@ -87,4 +87,46 @@ class RegistrationController extends Controller
 
         return redirect()->route('home')->with('success', 'Registration successful!');
     }
+
+    public function validateEmail(Request $request)
+    {
+        $email = $request->input('email');
+        
+        $validator = Validator::make(['email' => $email], [
+            'email' => 'required|email|unique:registrations'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'valid' => false,
+                'message' => 'This email is already registered'
+            ]);
+        }
+
+        return response()->json([
+            'valid' => true,
+            'message' => 'Email is available'
+        ]);
+    }
+
+    public function validateCompanyRegNo(Request $request)
+    {
+        $companyRegNo = $request->input('company_reg_no');
+        
+        $validator = Validator::make(['company_reg_no' => $companyRegNo], [
+            'company_reg_no' => 'required|string|unique:registrations'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'valid' => false,
+                'message' => 'This company registration number is already registered'
+            ]);
+        }
+
+        return response()->json([
+            'valid' => true,
+            'message' => 'Company registration number is available'
+        ]);
+    }
 }

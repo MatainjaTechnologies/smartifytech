@@ -5,6 +5,8 @@ return [
     'Contact' => 'Contact',
     'Register' => 'Register',
 
+    'validation_errors' => 'Validation Errors',
+
     'hero_tagline' => 'Your Trusted Partner in Consumer Electronics',
     'hero_subtitle' => 'Specialist wholesaler with 20+ years of experience serving B2B clients throughout Europe',
     'contact_us' => 'Contact Us',
@@ -46,7 +48,7 @@ return [
     'message' => 'Message',
     'send_message' => 'Send Message',
     'visit_office' => 'Visit Our Office',
-    'visit_office_subtitle' => 'Come visit us at our Rotterdam headquarters',
+    'visit_office_subtitle' => 'Come visit us at our Ringlaan headquarters',
     'office_name' => 'Smartify Tech B.V.',
     'office_address1' => 'Ringlaan 17A -2960',
     'office_address2' => 'Brecht- Belgium',
@@ -157,4 +159,17 @@ return [
     'previous' => 'Previous',
     'next' => 'Next',
     'submit_application' => 'Submit Application',
+
+    // Footer translations
+    'footer_description' => 'Your trusted partner in consumer electronics with 20+ years of experience serving B2B clients throughout Europe.',
+    'quick_links' => 'Quick Links',
+    'services' => 'Services',
+    'legal' => 'Legal',
+    'consumer_electronics' => 'Consumer Electronics',
+    'b2b_solutions' => 'B2B Solutions',
+    'european_distribution' => 'European Distribution',
+    'terms_conditions' => 'Terms & Conditions',
+    'privacy_policy' => 'Privacy Policy',
+    'cookie_policy' => 'Cookie Policy',
+    'copyright' => '&copy; 2026 Smartify Tech All rights reserved.',
 ];

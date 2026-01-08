@@ -1,5 +1,27 @@
 // Modern Corporate 7-Page Register Form JavaScript
 document.addEventListener('DOMContentLoaded', function() {
+    // Auto-hide success messages after 5 seconds
+    const successAlert = document.getElementById('success-alert');
+    if (successAlert) {
+        setTimeout(() => {
+            successAlert.classList.add('fade-out');
+            setTimeout(() => {
+                successAlert.style.display = 'none';
+            }, 300);
+        }, 5000);
+    }
+
+    // Auto-hide error messages after 8 seconds (longer for reading)
+    const errorAlert = document.getElementById('error-alert');
+    if (errorAlert) {
+        setTimeout(() => {
+            errorAlert.classList.add('fade-out');
+            setTimeout(() => {
+                errorAlert.style.display = 'none';
+            }, 300);
+        }, 8000);
+    }
+
     // Mobile Navigation Toggle
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     const mobileNavMenu = document.querySelector('.mobile-nav-menu');
@@ -38,6 +60,218 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Scroll to top of form
             document.querySelector('.register-form-wrapper').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Add real-time validation for all form fields
+        function setupRealTimeValidation() {
+            const allInputs = document.querySelectorAll('.form-input, .form-textarea, .form-select');
+            
+            allInputs.forEach(input => {
+                // Don't clear errors on focus - let user see the error
+                // input.addEventListener('focus', function() {
+                //     clearFieldError(this);
+                // });
+                
+                // Validate on blur (when user leaves the field)
+                input.addEventListener('blur', function() {
+                    validateField(this);
+                });
+                
+                // Validate on input (with debounce for better UX)
+                let debounceTimer;
+                input.addEventListener('input', function() {
+                    clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(() => {
+                        validateField(this); // Always validate on input - will clear if valid
+                    }, 500);
+                });
+                
+                // Validate on change (for selects and file inputs)
+                input.addEventListener('change', function() {
+                    validateField(this); // Always validate - will clear if valid
+                });
+                
+                // Don't clear errors on keydown - let validation handle it
+                // input.addEventListener('keydown', function() {
+                //     clearFieldError(this);
+                // });
+            });
+            
+            // Handle radio buttons separately
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => {
+                // Clear errors when user clicks on any radio option
+                radio.addEventListener('click', function() {
+                    const radioGroup = document.querySelectorAll(`input[name="${this.name}"]`);
+                    radioGroup.forEach(r => clearFieldError(r));
+                });
+                
+                // Validate on change
+                radio.addEventListener('change', function() {
+                    validateField(this);
+                });
+            });
+        }
+        
+        async function validateField(field) {
+            let errorMessage = '';
+            let isValid = true;
+            
+            // Clear previous error for this field
+            clearFieldError(field);
+            
+            // Check if field is required and empty
+            if (field.hasAttribute('required') && !field.value.trim()) {
+                const label = document.querySelector(`label[for="${field.id}"]`);
+                const labelText = label ? label.textContent.replace('*', '').trim() : 'This field';
+                errorMessage = `${labelText} is required`;
+                isValid = false;
+            }
+            
+            // Email validation with AJAX check
+            if (field.type === 'email' && field.value.trim() && isValid) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(field.value.trim())) {
+                    errorMessage = 'Please enter a valid email address';
+                    isValid = false;
+                } else {
+                    // Check if email is already registered via AJAX
+                    isValid = await checkEmailAvailability(field.value.trim());
+                    if (!isValid) {
+                        errorMessage = 'This email is already registered';
+                    }
+                }
+            }
+            
+            // Phone validation
+            if (field.type === 'tel' && field.value.trim() && isValid) {
+                const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+                if (!phoneRegex.test(field.value.trim()) || field.value.trim().length < 10) {
+                    errorMessage = 'Please enter a valid phone number';
+                    isValid = false;
+                }
+            }
+            
+            // Password confirmation validation
+            if (field.id === 'password_confirmation' && field.value.trim() && isValid) {
+                const passwordField = document.getElementById('password');
+                if (passwordField && field.value !== passwordField.value) {
+                    errorMessage = 'Password confirmation does not match';
+                    isValid = false;
+                }
+            }
+            
+            // Password strength validation
+            if (field.id === 'password' && field.value.trim() && isValid) {
+                if (field.value.length < 8) {
+                    errorMessage = 'Password must be at least 8 characters long';
+                    isValid = false;
+                }
+            }
+            
+            // Number validation
+            if (field.type === 'number' && field.value.trim() && isValid) {
+                const num = parseFloat(field.value);
+                if (isNaN(num) || num <= 0) {
+                    const label = document.querySelector(`label[for="${field.id}"]`);
+                    const labelText = label ? label.textContent.replace('*', '').trim() : 'This field';
+                    errorMessage = `Please enter a valid ${labelText.toLowerCase()}`;
+                    isValid = false;
+                }
+            }
+            
+            // Company registration number validation with AJAX check
+            if (field.id === 'company_reg_no' && field.value.trim() && isValid) {
+                // Check if company reg no is already registered via AJAX
+                isValid = await checkCompanyRegNoAvailability(field.value.trim());
+                if (!isValid) {
+                    errorMessage = 'This company registration number is already registered';
+                }
+            }
+            
+            // File validation
+            if (field.type === 'file' && field.hasAttribute('required') && isValid) {
+                if (field.files.length === 0) {
+                    const label = document.querySelector(`label[for="${field.id}"]`);
+                    const labelText = label ? label.textContent.replace('*', '').trim() : 'This file';
+                    errorMessage = `Please upload ${labelText}`;
+                    isValid = false;
+                }
+            }
+            
+            // Radio button validation
+            if (field.type === 'radio' && isValid) {
+                const radioGroup = document.querySelectorAll(`input[name="${field.name}"]`);
+                const isChecked = Array.from(radioGroup).some(radio => radio.checked);
+                if (!isChecked) {
+                    const label = document.querySelector(`label[for="${field.id}"]`) || 
+                                 document.querySelector(`label:has(input[name="${field.name}"])`);
+                    const labelText = label ? label.textContent.replace('*', '').trim() : 'This option';
+                    errorMessage = `Please select ${labelText}`;
+                    isValid = false;
+                }
+            }
+            
+            // Select validation
+            if (field.tagName === 'SELECT' && isValid && !field.value) {
+                const label = document.querySelector(`label[for="${field.id}"]`);
+                const labelText = label ? label.textContent.replace('*', '').trim() : 'This field';
+                errorMessage = `Please select ${labelText}`;
+                isValid = false;
+            }
+            
+            // Show error or success
+            if (!isValid) {
+                showError(field, errorMessage);
+            } else {
+                // Add success indicator
+                field.style.borderColor = '#28a745';
+                field.style.backgroundColor = '#f8fff9';
+            }
+            
+            return isValid;
+        }
+        
+        // Initialize real-time validation
+        setupRealTimeValidation();
+        
+        // AJAX helper functions for unique field validation
+        async function checkEmailAvailability(email) {
+            try {
+                const response = await fetch('/validate/email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const data = await response.json();
+                return data.valid;
+            } catch (error) {
+                console.error('Error checking email availability:', error);
+                return true; // Assume valid on error to not block user
+            }
+        }
+        
+        async function checkCompanyRegNoAvailability(regNo) {
+            try {
+                const response = await fetch('/validate/company-reg-no', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
+                    },
+                    body: JSON.stringify({ company_reg_no: regNo })
+                });
+                
+                const data = await response.json();
+                return data.valid;
+            } catch (error) {
+                console.error('Error checking company reg no availability:', error);
+                return true; // Assume valid on error to not block user
+            }
         }
         
         function validateCurrentStep() {
@@ -141,13 +375,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             errorElement.textContent = message;
             
-            // Focus on the field
-            field.focus();
+            // Don't auto-focus on error to allow user to interact with other fields
+            // field.focus(); // Removed this line
             
-            // Remove error after 5 seconds
-            setTimeout(() => {
-                clearFieldError(field);
-            }, 5000);
+            // Don't auto-remove error - it will stay until user fixes the field
+            // setTimeout(() => {
+            //     clearFieldError(field);
+            // }, 8000); // Removed auto-clear
         }
         
         function clearFieldError(field) {
@@ -159,7 +393,23 @@ document.addEventListener('DOMContentLoaded', function() {
             if (errorElement) {
                 errorElement.remove();
             }
+            
+            // Also clear errors from related radio buttons
+            if (field.type === 'radio') {
+                const radioGroup = document.querySelectorAll(`input[name="${field.name}"]`);
+                radioGroup.forEach(radio => {
+                    radio.classList.remove('error');
+                    radio.style.borderColor = '';
+                    radio.style.backgroundColor = '';
+                    const radioErrorElement = radio.parentNode.querySelector('.field-error');
+                    if (radioErrorElement) {
+                        radioErrorElement.remove();
+                    }
+                });
+            }
         }
+        
+        // Initialize radio validation is now handled in setupRealTimeValidation()
         
         function clearErrors() {
             // Clear all field errors

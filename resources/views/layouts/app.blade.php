@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Smartify Tech')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/whatsapp.css') }}">
 </head>
@@ -68,14 +69,19 @@
     </div>
 
     @if(session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success alert-dismissible" id="success-alert">
+            <button type="button" class="alert-close" onclick="this.parentElement.style.display='none'">&times;</button>
             {{ session('success') }}
         </div>
     @endif
 
     @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
+        <div class="alert alert-danger alert-dismissible" id="error-alert">
+            <button type="button" class="alert-close" onclick="this.parentElement.style.display='none'">&times;</button>
+            <div class="error-title">
+                <strong>{{ __('messages.validation_errors') }}</strong>
+            </div>
+            <ul class="error-list">
                 @foreach($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach

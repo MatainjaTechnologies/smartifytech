@@ -5,6 +5,8 @@ return [
     'Contact' => 'Contact',
     'Register' => 'Registreren',
 
+    'validation_errors' => 'Validatiefouten',
+
     'hero_tagline' => 'Uw vertrouwde partner in consumentenelektronica',
     'hero_subtitle' => 'Gespecialiseerde groothandel met meer dan 20 jaar ervaring in het bedienen van B2B-klanten in heel Europa',
     'contact_us' => 'Neem contact op',
@@ -46,7 +48,7 @@ return [
     'message' => 'Bericht',
     'send_message' => 'Verstuur bericht',
     'visit_office' => 'Bezoek ons kantoor',
-    'visit_office_subtitle' => 'Bezoek ons op ons hoofdkantoor in Rotterdam',
+    'visit_office_subtitle' => 'Bezoek ons op ons hoofdkantoor in Ringlaan',
     'office_name' => 'Smartify Tech B.V.',
     'office_address1' => 'Ringlaan 17A -2960',
     'office_address2' => 'Brecht- België',
@@ -157,4 +159,17 @@ return [
     'previous' => 'Vorige',
     'next' => 'Volgende',
     'submit_application' => 'Aanvraag indienen',
+
+    // Footer translations
+    'footer_description' => 'Uw vertrouwde partner in consumentenelektronica met meer dan 20 jaar ervaring in het bedienen van B2B-klanten in heel Europa.',
+    'quick_links' => 'Snelle links',
+    'services' => 'Diensten',
+    'legal' => 'Juridisch',
+    'consumer_electronics' => 'Consumentenelektronica',
+    'b2b_solutions' => 'B2B-oplossingen',
+    'european_distribution' => 'Europese distributie',
+    'terms_conditions' => 'Algemene voorwaarden',
+    'privacy_policy' => 'Privacybeleid',
+    'cookie_policy' => 'Cookiebeleid',
+    'copyright' => '&copy; 2026 Smartify Tech Alle rechten voorbehouden.',
 ];

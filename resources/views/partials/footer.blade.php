@@ -6,7 +6,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <img src="{{ asset('images/logo.png') }}" alt="Smartify Tech Logo" class="footer-logo">
-                    <p class="footer-description">Your trusted partner in consumer electronics with 20+ years of experience serving B2B clients throughout Europe.</p>
+                    <p class="footer-description">{{ __('messages.footer_description') }}</p>
                     <div class="footer-social">
                         <a href="https://api.whatsapp.com/send/?phone=32465595848&text&type=phone_number&app_absent=0" class="social-link whatsapp" target="_blank">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -18,29 +18,29 @@
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h3 class="footer-title">Quick Links</h3>
+                        <h3 class="footer-title">{{ __('messages.quick_links') }}</h3>
                         <ul class="footer-list">
-                            <li><a href="{{ route('home') }}" class="footer-link">About Us</a></li>
-                            <li><a href="{{ route('contact') }}" class="footer-link">Contact</a></li>
-                            <li><a href="{{ route('register') }}" class="footer-link">Register</a></li>
+                            <li><a href="{{ route('home') }}" class="footer-link">{{ __('messages.about_us') }}</a></li>
+                            <li><a href="{{ route('contact') }}" class="footer-link">{{ __('messages.Contact') }}</a></li>
+                            <li><a href="{{ route('register') }}" class="footer-link">{{ __('messages.Register') }}</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h3 class="footer-title">Services</h3>
+                        <h3 class="footer-title">{{ __('messages.services') }}</h3>
                         <ul class="footer-list">
-                            <li><a href="#" class="footer-link">Consumer Electronics</a></li>
-                            <li><a href="#" class="footer-link">B2B Solutions</a></li>
-                            <li><a href="#" class="footer-link">European Distribution</a></li>
+                            <li><a href="#" class="footer-link">{{ __('messages.consumer_electronics') }}</a></li>
+                            <li><a href="#" class="footer-link">{{ __('messages.b2b_solutions') }}</a></li>
+                            <li><a href="#" class="footer-link">{{ __('messages.european_distribution') }}</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h3 class="footer-title">Legal</h3>
+                        <h3 class="footer-title">{{ __('messages.legal') }}</h3>
                         <ul class="footer-list">
-                            <li><a href="#" class="footer-link">Algemene Voorwaarden</a></li>
-                            <li><a href="#" class="footer-link">Privacy Verklaring</a></li>
-                            <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                            <li><a href="#" class="footer-link">{{ __('messages.terms_conditions') }}</a></li>
+                            <li><a href="#" class="footer-link">{{ __('messages.privacy_policy') }}</a></li>
+                            <li><a href="#" class="footer-link">{{ __('messages.cookie_policy') }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <div class="footer-copyright">
-                    <p>&copy; 2026 Smartify Tech All rights reserved.</p>
+                    <p>{{ __('messages.copyright') }}</p>
                 </div>
             </div>
         </div>

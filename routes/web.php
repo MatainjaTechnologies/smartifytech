@@ -27,4 +27,8 @@ Route::post('/register', [RegistrationController::class, 'store'])->name('regist
 Route::post('/register/supplier', [ContactController::class, 'registerSupplier'])->name('register.supplier');
 Route::post('/register/client', [ContactController::class, 'registerClient'])->name('register.client');
 
+// Real-time validation routes
+Route::post('/validate/email', [RegistrationController::class, 'validateEmail'])->name('validate.email');
+Route::post('/validate/company-reg-no', [RegistrationController::class, 'validateCompanyRegNo'])->name('validate.company-reg-no');
+
 Route::get('lang/{locale}', [LocalizationController::class, 'setLang'])->name('lang.switch');
