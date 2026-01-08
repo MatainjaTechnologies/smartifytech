@@ -1,5 +1,16 @@
 // Modern Corporate 7-Page Register Form JavaScript
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Navigation Toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+
+    if (mobileNavToggle && mobileNavMenu) {
+        mobileNavToggle.addEventListener('click', () => {
+            mobileNavToggle.classList.toggle('is-active');
+            mobileNavMenu.classList.toggle('is-active');
+        });
+    }
+
     // Only run on register page
     if (document.querySelector('.modern-register-form')) {
         let currentStep = 1;

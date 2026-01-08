@@ -29,7 +29,7 @@
             </div>
             <div class="hero-right">
                 <div class="hero-image-container">
-                    <img src="https://dutch-fix.com/wp-content/uploads/2025/02/iphone-hd.png" alt="iPhone" class="hero-image">
+                    <img src="{{ asset('images/hero-image.png') }}" alt="iPhone" class="hero-image">
                     <div class="hero-image-bg"></div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
         <div class="about-content">
             <div class="about-left">
                 <div class="about-image-card">
-                    <img src="https://dutch-fix.com/wp-content/uploads/2025/02/ax2-scaled.jpg" alt="Diverse team brainstorming ideas on whiteboard" class="about-image">
+                    <img src="{{ asset('images/about-image.png') }}" alt="Diverse team brainstorming ideas on whiteboard" class="about-image">
                     <div class="about-image-overlay"></div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
         
         <div class="about-gallery">
             <div class="gallery-item">
-                <img src="https://dutch-fix.com/wp-content/uploads/2025/02/ax1-scaled.jpg" alt="Diverse team brainstorming ideas on whiteboard" class="gallery-image">
+                <img src="{{ asset('images/gallery-image.png') }}" alt="Diverse team brainstorming ideas on whiteboard" class="gallery-image">
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h4>{{ __('messages.gallery_title') }}</h4>
@@ -127,9 +127,9 @@
                 <a href="{{ route('contact') }}" class="btn-cta-secondary">{{ __('messages.learn_more') }}</a>
             </div>
         </div>
-        <div class="cta-decoration">
-            <img src="https://dutch-fix.com/wp-content/uploads/2025/02/Line.png" alt="Line" class="cta-line">
-        </div>
+        <!-- <div class="cta-decoration">
+            <img src="{{ asset('images/cta-line.png') }}" alt="Line" class="cta-line">
+        </div> -->
     </div>
 </section>
 
