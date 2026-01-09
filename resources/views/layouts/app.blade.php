@@ -92,5 +92,15 @@
     @include('partials.footer')
     
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const successAlert = document.getElementById('success-alert');
+            if (successAlert) {
+                setTimeout(function() {
+                    successAlert.style.display = 'none';
+                }, 5000); // 5000 milliseconds = 5 seconds
+            }
+        });
+    </script>
 </body>
 </html>

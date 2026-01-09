@@ -6,6 +6,8 @@ use App\Models\Registration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RegistrationSuccess;
 
 class RegistrationController extends Controller
 {
@@ -85,7 +87,9 @@ class RegistrationController extends Controller
 
         $registration = Registration::create($data);
 
-        return redirect()->route('home')->with('success', 'Registration successful!');
+        Mail::to($registration->email)->send(new RegistrationSuccess($registration));
+
+        return redirect()->route('home')->with('success', "Registration successful! A confirmation email has been sent to {$registration->email}.");
     }
 
     public function validateEmail(Request $request)
