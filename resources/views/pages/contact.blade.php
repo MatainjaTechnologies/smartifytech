@@ -113,7 +113,7 @@
                                 </svg>
                                 {{ __('messages.phone_number') }}
                             </label>
-                            <input type="tel" id="phone" name="phone" class="form-input" value="{{ old('phone') }}" placeholder="+31 6 87 06 26 26" pattern="[0-9\s\-]{3,17}" title="Only numbers allowed. Minimum length: 3 characters. Maximum length: 17 characters." maxlength="17" required>
+                            <input type="tel" id="phone" name="phone" class="form-input" value="{{ old('phone') }}" placeholder="+32 4 65 59 58 48" pattern="[0-9\s\-]{3,17}" title="Only numbers allowed. Minimum length: 3 characters. Maximum length: 17 characters." maxlength="17" required>
                             @error('phone')
                                 <span class="error-message">{{ $message }}</span>
                             @enderror
