@@ -21,6 +21,7 @@ Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 Route::get('/register', [PagesController::class, 'register'])->name('register');
+Route::get('/terms', [PagesController::class, 'terms'])->name('terms');
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 Route::post('/register', [RegistrationController::class, 'store'])->name('register.submit');

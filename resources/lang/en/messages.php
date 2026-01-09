@@ -171,5 +171,5 @@ return [
     'terms_conditions' => 'Terms & Conditions',
     'privacy_policy' => 'Privacy Policy',
     'cookie_policy' => 'Cookie Policy',
-    'copyright' => '&copy; 2026 Smartify Tech All rights reserved.',
+    'copyright' => '2026 Smartify Tech All rights reserved.',
 ];

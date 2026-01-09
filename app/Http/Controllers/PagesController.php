@@ -46,4 +46,15 @@ class PagesController extends Controller
     {
         return view('pages.register');
     }
+
+    /**
+     * Display the terms and conditions page.
+     *
+     * @return View
+     */
+    public function terms(): View
+    {
+        return view('pages.terms');
+    }
+
 }
