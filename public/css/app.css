@@ -3438,3 +3438,83 @@ body {
 .alert.fade-out {
     animation: slideOutRight 0.3s ease-out forwards;
 }
+
+/* Modern Terms Page */
+.modern-terms {
+    background: #f8fafc;
+}
+
+/* Header */
+.modern-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.modern-header .terms-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.modern-header .terms-subtitle {
+    font-size: 16px;
+    color: #64748b;
+    margin-top: 10px;
+}
+
+/* Agreement Container */
+.modern-agreement {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Card Style */
+.modern-item {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 28px 30px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+}
+
+.modern-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* Number Badge */
+.modern-badge {
+    min-width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+/* Text */
+.modern-item p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #334155;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modern-item {
+        flex-direction: column;
+    }
+
+    .modern-badge {
+        margin-bottom: 10px;
+    }
+}

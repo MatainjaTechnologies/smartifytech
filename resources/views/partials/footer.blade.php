@@ -38,7 +38,7 @@
                     <div class="footer-column">
                         <h3 class="footer-title">{{ __('messages.legal') }}</h3>
                         <ul class="footer-list">
-                            <li><a href="#" class="footer-link">{{ __('messages.terms_conditions') }}</a></li>
+                            <li><a href="{{ route('terms') }}" class="footer-link">{{ __('messages.terms_conditions') }}</a></li>
                             <li><a href="#" class="footer-link">{{ __('messages.privacy_policy') }}</a></li>
                             <li><a href="#" class="footer-link">{{ __('messages.cookie_policy') }}</a></li>
                         </ul>
@@ -51,7 +51,7 @@
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <div class="footer-copyright">
-                    <p>{{ __('messages.copyright') }}</p>
+                    <p>&copy; {{ __('messages.copyright') }}</p>
                 </div>
             </div>
         </div>
