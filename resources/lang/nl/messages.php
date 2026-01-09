@@ -171,5 +171,5 @@ return [
     'terms_conditions' => 'Algemene voorwaarden',
     'privacy_policy' => 'Privacybeleid',
     'cookie_policy' => 'Cookiebeleid',
-    'copyright' => '2026 Smartify Tech Alle rechten voorbehouden.',
+    'copyright' => '&copy; 2026 Smartify Tech Alle rechten voorbehouden.',
 ];
