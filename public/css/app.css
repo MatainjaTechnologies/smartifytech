@@ -3445,18 +3445,27 @@ body {
 }
 
 /* Header */
-.modern-header {
+.modern-header1 {
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    top: 0;
+    z-index: 1001;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modern-header1 {
     text-align: center;
     margin-bottom: 50px;
 }
 
-.modern-header .terms-title {
+.modern-header1 .terms-title {
     font-size: 36px;
     font-weight: 700;
     color: #0f172a;
 }
 
-.modern-header .terms-subtitle {
+.modern-header1 .terms-subtitle {
     font-size: 16px;
     color: #64748b;
     margin-top: 10px;
