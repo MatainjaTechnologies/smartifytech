@@ -38,7 +38,7 @@ class PagesController extends Controller
         $files = Storage::disk('public')->files('pricelists');
         if (!empty($files)) {
             usort($files, function ($a, $b) {
-                return Storage::lastModified($b) <=> Storage::lastModified($a);
+                return Storage::disk('public')->lastModified($b) <=> Storage::disk('public')->lastModified($a);
             });
             $latestFile = basename(array_shift($files));
             $priceListUrl = route('admin.pricelist.show', ['filename' => $latestFile]);
