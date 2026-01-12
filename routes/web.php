@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LocalizationController;
@@ -33,3 +34,17 @@ Route::post('/validate/email', [RegistrationController::class, 'validateEmail'])
 Route::post('/validate/company-reg-no', [RegistrationController::class, 'validateCompanyRegNo'])->name('validate.company-reg-no');
 
 Route::get('lang/{locale}', [LocalizationController::class, 'setLang'])->name('lang.switch');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::post('/admin/upload', [AdminController::class, 'upload'])->name('admin.upload');
+});
+
+Route::get('/storage/pricelists/{filename}', [AdminController::class, 'showPriceList'])->name('admin.pricelist.show');
+
+Auth::routes(['register' => false]);
+
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->middleware('guest');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

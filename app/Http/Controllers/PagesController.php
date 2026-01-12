@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
 
 class PagesController extends Controller
 {
@@ -34,7 +35,18 @@ class PagesController extends Controller
      */
     public function contact(): View
     {
-        return view('pages.contact');
+        $files = Storage::disk('public')->files('pricelists');
+        if (!empty($files)) {
+            usort($files, function ($a, $b) {
+                return Storage::lastModified($b) <=> Storage::lastModified($a);
+            });
+            $latestFile = basename(array_shift($files));
+            $priceListUrl = route('admin.pricelist.show', ['filename' => $latestFile]);
+        } else {
+            $priceListUrl = '#'; // Default link if no file is found
+        }
+
+        return view('pages.contact', ['priceListUrl' => $priceListUrl]);
     }
 
     /**
