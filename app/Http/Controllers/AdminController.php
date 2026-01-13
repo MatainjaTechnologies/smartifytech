@@ -36,7 +36,6 @@ class AdminController extends Controller
         // Save in DB
         Price_list::create([
             'file_name' => $fileName,
-            'file_path' => $path,
             'status'    => 1,
         ]);
 
