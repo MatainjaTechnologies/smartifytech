@@ -35,35 +35,19 @@ Route::post('/validate/company-reg-no', [RegistrationController::class, 'validat
 
 Route::get('lang/{locale}', [LocalizationController::class, 'setLang'])->name('lang.switch');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::post('/admin/upload', [AdminController::class, 'upload'])->name('admin.upload');
+});
+
+Route::get('/storage/pricelists/{filename}', [AdminController::class, 'showPriceList'])->name('admin.pricelist.show');
+
+// Test email route
+Route::get('/test-email', [PagesController::class, 'testEmail'])->name('test.email');
+
 Auth::routes(['register' => false]);
 
-Route::prefix('admin')->group(function () {
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->middleware('guest');
 
-    Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])
-        ->name('admin.login')
-        ->middleware('guest');
-
-    Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])
-        ->name('admin.login.submit')
-        ->middleware('guest');
-
-    Route::get('/dashboard', [AdminController::class, 'index'])
-        ->name('admin.index')
-        ->middleware('auth');
-
-    Route::post('/upload', [AdminController::class, 'upload'])
-        ->name('admin.upload')
-        ->middleware('auth');
-
-    Route::get('/storage/pricelists/{filename}', [AdminController::class, 'showPriceList'])
-        ->name('admin.pricelist.show')->middleware('auth');
-});
-
-Route::get('/login', function () {
-    return redirect('/admin/login');
-});
-
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
