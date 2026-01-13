@@ -29,7 +29,7 @@
             </div>
             <div class="hero-right">
                 <div class="hero-image-container">
-                    <img src="{{ asset('images/hero-image.png') }}" alt="iPhone" class="hero-image">
+                    <img src="{{ asset('images/digital.png') }}" alt="iPhone" class="hero-image">
                     <div class="hero-image-bg"></div>
                 </div>
             </div>
