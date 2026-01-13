@@ -10,7 +10,7 @@
                 Or <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500">{{ __('Register') }}</a>
             </p>
         </div>
-        <form class="mt-8 space-y-6" method="POST" action="{{ route('login') }}">
+        <form class="mt-8 space-y-6" method="POST" action="{{ route('admin.login.submit') }}">
             @csrf
             <input type="hidden" name="remember" value="true">
             <div class="rounded-md shadow-sm -space-y-px">
