@@ -4,21 +4,41 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use App\Models\User;
+use App\Models\Price_list;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $priceLists = Price_list::orderBy('id', 'desc')->get();
+        return view('admin.index',compact('priceLists'));
     }
 
     public function upload(Request $request)
     {
         $request->validate([
-            'price_list' => 'required|mimes:pdf|max:10240',
+            'price_list' => 'required|file|mimes:pdf|max:10240',
         ]);
 
-        $path = $request->file('price_list')->store('pricelists', 'public');
+        $file = $request->file('price_list');
+
+        // Original filename
+        $originalName = $file->getClientOriginalName();
+
+        // Unique filename
+        $fileName = 'pricelist_' . time() . '_' . Str::slug(pathinfo($originalName, PATHINFO_FILENAME)) . '.pdf';
+
+        // Store file
+        $path = $file->storeAs('pricelists', $fileName, 'public');
+
+        // Save in DB
+        Price_list::create([
+            'file_name' => $fileName,
+            'file_path' => $path,
+            'status'    => 1,
+        ]);
 
         return back()->with('success', 'Price list uploaded successfully.');
     }
