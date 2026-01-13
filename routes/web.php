@@ -63,3 +63,40 @@ Route::prefix('admin')->group(function () {
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home');
+
+
+/* Clear application cache: */
+Route::get('/clear-cache', function () {
+    $exitCode = Artisan::call('cache:clear');
+    return 'Application cache has been cleared';
+});
+
+/* Clear route cache: */
+Route::get('/route-cache', function () {
+    $exitCode = Artisan::call('route:cache');
+    return 'Routes cache has been cleared';
+});
+
+/* Clear config cache: */
+Route::get('/config-cache', function () {
+    $exitCode = Artisan::call('config:cache');
+    return 'Config cache has been cleared';
+});
+
+/* Clear view cache: */
+Route::get('/view-clear', function () {
+    $exitCode = Artisan::call('view:clear');
+    return 'View cache has been cleared';
+});
+
+/* Clear optimize */
+Route::get('/optimize', function () {
+    $exitCode = Artisan::call('optimize');
+    return 'Configuration & Route cache cleared successfully';
+});
+
+/* Clear permission cache */
+Route::get('/permission-clear', function () {
+    $exitCode = Artisan::call('permission:cache-reset');
+    return 'Permission cache cleared successfully';
+});
