@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Modern Contact Hero Section -->
-<section class="contact-hero">
+<section class="contact-hero" style="background-image: url('{{ asset('images/contact-hero-bg.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="contact-hero-container">
         <div class="contact-hero-content">
             <div class="contact-hero-left">

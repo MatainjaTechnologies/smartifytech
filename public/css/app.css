@@ -2018,11 +2018,12 @@ small {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    display: flex;
-    align-items: center;
     position: relative;
     overflow: hidden;
     padding: 60px 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
 }
 
 .contact-hero::before {
