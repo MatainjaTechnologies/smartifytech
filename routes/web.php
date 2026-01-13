@@ -54,7 +54,7 @@ Route::get('/permission-clear', function () {
     return 'Permission cache cleared successfully';
 });
 
-Route::get('/', [PagesController::class, 'home'])->name('home');
+Route::get('/', [PagesController::class, 'home']);
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 Route::get('/register', [PagesController::class, 'register'])->name('register');
@@ -98,7 +98,7 @@ Route::prefix('admin')->group(function () {
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 
