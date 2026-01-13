@@ -35,6 +35,7 @@ Route::post('/validate/company-reg-no', [RegistrationController::class, 'validat
 
 Route::get('lang/{locale}', [LocalizationController::class, 'setLang'])->name('lang.switch');
 
+
 Auth::routes(['register' => false]);
 
 Route::prefix('admin')->group(function () {
@@ -56,13 +57,8 @@ Route::prefix('admin')->group(function () {
         ->middleware('auth');
 
     Route::get('/storage/pricelists/{filename}', [AdminController::class, 'showPriceList'])
-        ->name('admin.pricelist.show')->middleware('auth');
+        ->name('admin.pricelist.show');
 });
-
-Route::get('/login', function () {
-    return redirect('/admin/login');
-});
-
 
 
 
