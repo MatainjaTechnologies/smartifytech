@@ -65,6 +65,18 @@
             font-size: 12px;
             color: #888888;
         }
+        .file-link {
+            color: #007bff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #007bff;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        .file-link:hover {
+            background-color: #007bff;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -284,27 +296,63 @@
             <table class="table">
                 <tr>
                     <th>Company Incorporation Certificate.</th>
-                    <td>{{ $registration->company_incorporation_cert ? 'Attached' : 'Not Provided' }}</td>
+                    <td>
+                        @if($registration->company_incorporation_cert)
+                            <a href="{{ asset('storage/' . $registration->company_incorporation_cert) }}" target="_blank" class="file-link">View Document</a>
+                        @else
+                            Not Provided
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <th>VAT Certificate</th>
-                    <td>{{ $registration->vat_cert ? 'Attached' : 'Not Provided' }}</td>
+                    <td>
+                        @if($registration->vat_cert)
+                            <a href="{{ asset('storage/' . $registration->vat_cert) }}" target="_blank" class="file-link">View Document</a>
+                        @else
+                            Not Provided
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <th>Completed references and company representatives</th>
-                    <td>{{ $registration->completed_refs ? 'Attached' : 'Not Provided' }}</td>
+                    <td>
+                        @if($registration->completed_refs)
+                            <a href="{{ asset('storage/' . $registration->completed_refs) }}" target="_blank" class="file-link">View Document</a>
+                        @else
+                            Not Provided
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <th>Bank Account Details</th>
-                    <td>{{ $registration->bank_details_cert ? 'Attached' : 'Not Provided' }}</td>
+                    <td>
+                        @if($registration->bank_details_cert)
+                            <a href="{{ asset('storage/' . $registration->bank_details_cert) }}" target="_blank" class="file-link">View Document</a>
+                        @else
+                            Not Provided
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <th>Copy of recent utility bill (Electric/Water/Gas/Landline Telephone).</th>
-                    <td>{{ $registration->utility_bill_copy ? 'Attached' : 'Not Provided' }}</td>
+                    <td>
+                        @if($registration->utility_bill_copy)
+                            <a href="{{ asset('storage/' . $registration->utility_bill_copy) }}" target="_blank" class="file-link">View Document</a>
+                        @else
+                            Not Provided
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <th>Director ID document</th>
-                    <td>{{ $registration->director_id_doc ? 'Attached' : 'Not Provided' }}</td>
+                    <td>
+                        @if($registration->director_id_doc)
+                            <a href="{{ asset('storage/' . $registration->director_id_doc) }}" target="_blank" class="file-link">View Document</a>
+                        @else
+                            Not Provided
+                        @endif
+                    </td>
                 </tr>
             </table>
         </div>

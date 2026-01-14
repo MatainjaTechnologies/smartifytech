@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Mail\RegistrationSuccess;
 
 class RegistrationController extends Controller
@@ -87,7 +89,16 @@ class RegistrationController extends Controller
 
         $registration = Registration::create($data);
 
-        Mail::to($registration->email)->send(new RegistrationSuccess($registration));
+        // Generate PDF of the registration data
+        $pdf = Pdf::loadView('pdfs.registration', ['registration' => $registration]);
+
+        // Define the admin email address
+        $adminEmail = 'info@smartify-tech.com'; // Replace with your admin email
+
+        // Send the email to the user and CC the admin
+        Mail::to($registration->email)
+            ->cc($adminEmail)
+            ->send(new RegistrationSuccess($registration, $pdf, $fileFields));
 
         return redirect()->route('home')->with('success', "Registration successful! A confirmation email has been sent to {$registration->email}.");
     }

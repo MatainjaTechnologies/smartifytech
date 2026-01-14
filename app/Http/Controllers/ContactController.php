@@ -7,8 +7,10 @@ use App\Http\Requests\SupplierRegistrationRequest;
 use App\Http\Requests\ClientRegistrationRequest;
 use App\Models\Contact;
 use App\Models\Registration;
+use App\Mail\ContactFormSubmitted;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -22,6 +24,10 @@ class ContactController extends Controller
     {
         try {
             $contact = Contact::create($request->validated());
+            
+            // Send email to admin with contact form data
+            $adminEmail = 'info@smartify-tech.com'; // You can make this configurable
+            Mail::to($adminEmail)->send(new ContactFormSubmitted($contact));
             
             return redirect()
                 ->route('contact')

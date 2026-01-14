@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/whatsapp.css') }}">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <!-- WhatsApp Button - Inline Styles -->
@@ -69,7 +70,7 @@
     </div>
 
     @if(session('success'))
-        <div class="alert alert-success alert-dismissible" id="success-alert">
+        <div class="alert alert-success alert-dismissible" id="success-alert" style="position: fixed; top: 20px; right: 20px; z-index: 9999; min-width: 300px; cursor: pointer;">
             <button type="button" class="alert-close" onclick="this.parentElement.style.display='none'">&times;</button>
             {{ session('success') }}
         </div>
@@ -96,11 +97,27 @@
         document.addEventListener('DOMContentLoaded', function() {
             const successAlert = document.getElementById('success-alert');
             if (successAlert) {
+                // Auto-hide after 5 seconds
                 setTimeout(function() {
-                    successAlert.style.display = 'none';
-                }, 5000); // 5000 milliseconds = 5 seconds
+                    successAlert.style.transition = 'opacity 0.5s ease-out';
+                    successAlert.style.opacity = '0';
+                    setTimeout(function() {
+                        successAlert.style.display = 'none';
+                    }, 500);
+                }, 5000);
+                
+                // Also add click to dismiss functionality
+                successAlert.addEventListener('click', function() {
+                    successAlert.style.transition = 'opacity 0.3s ease-out';
+                    successAlert.style.opacity = '0';
+                    setTimeout(function() {
+                        successAlert.style.display = 'none';
+                    }, 300);
+                });
             }
         });
     </script>
+    
+    @stack('scripts')
 </body>
 </html>

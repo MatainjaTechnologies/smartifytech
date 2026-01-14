@@ -148,6 +148,15 @@
                             @enderror
                     </div>
                     
+                    @if(config('app.env') === 'production')
+                    <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}" style="display: flex; justify-content: center;"></div>
+                        @error('g-recaptcha-response')
+                            <span class="error-message">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    @endif
+                    
                     <div class="form-actions">
                         <button type="submit" class="submit-btn">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

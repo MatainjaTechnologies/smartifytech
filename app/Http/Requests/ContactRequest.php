@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use App\Rules\Recaptcha;
 
 class ContactRequest extends FormRequest
 {
@@ -21,13 +23,20 @@ class ContactRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:20',
             'subject' => 'required|string|max:255',
             'message' => 'nullable|string|max:1000',
         ];
+
+        // Only require reCAPTCHA in production
+        if (config('app.env') === 'production') {
+            $rules['g-recaptcha-response'] = ['required', new Recaptcha()];
+        }
+
+        return $rules;
     }
 
     /**
@@ -52,6 +61,8 @@ class ContactRequest extends FormRequest
             'subject.max' => 'The subject may not be greater than 255 characters.',
             'message.string' => 'The message must be a string.',
             'message.max' => 'The message may not be greater than 1000 characters.',
+            'g-recaptcha-response.required' => 'Please verify that you are not a robot.',
+            'g-recaptcha-response.recaptcha' => 'reCAPTCHA verification failed. Please try again.',
         ];
     }
 }
