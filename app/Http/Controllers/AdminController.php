@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Price_list;
+use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -58,5 +60,29 @@ class AdminController extends Controller
         $mimeType = Storage::disk('public')->mimeType($path);
 
         return response($file, 200, ['Content-Type' => $mimeType]);
+    }
+
+    public function changePasswordForm()
+    {
+        return view('admin.change_password');
+    }
+
+    public function changePasswordUpdate(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = Auth::user();
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'Current password is incorrect']);
+        }
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return back()->with('password_success', 'Password updated successfully.');
     }
 }

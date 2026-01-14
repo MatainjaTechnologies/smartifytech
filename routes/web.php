@@ -94,6 +94,14 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/storage/pricelists/{filename}', [AdminController::class, 'showPriceList'])
         ->name('admin.pricelist.show');
+
+    Route::get('/change-password', [AdminController::class, 'changePasswordForm'])
+        ->name('admin.change.password')
+        ->middleware('auth');
+
+    Route::post('/change-password-update', [AdminController::class, 'changePasswordUpdate'])
+        ->name('admin.change.password.update')
+        ->middleware('auth');
 });
 
 
