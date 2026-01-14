@@ -24,12 +24,12 @@
     <header class="modern-header">
         <div class="header-container">
             <div class="header-left">
-                <a href="{{ route('home') }}" class="logo-link">
+                <a href="{{ url('/') }}" class="logo-link">
                     <img src="{{ asset('images/logo.png') }}" alt="Smartify Tech Logo" class="header-logo">
                 </a>
             </div>
             <nav class="header-nav">
-                <a href="{{ route('home') }}" class="nav-link">{{ __('messages.About') }}</a>
+                <a href="{{ url('/') }}" class="nav-link">{{ __('messages.About') }}</a>
                 <a href="{{ route('contact') }}" class="nav-link">{{ __('messages.Contact') }}</a>
                 <a href="{{ route('register') }}" class="nav-link">{{ __('messages.Register') }}</a>
                 <div class="lang-dropdown">
