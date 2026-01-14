@@ -5,7 +5,7 @@
     <div class="max-w-md w-full space-y-8">
         <div>
             <img class="mx-auto h-12 w-auto" src="{{ asset('images/logo.png') }}" alt="Smartify Tech Logo">
-            <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">{{ __('Login') }}</h2>
+            <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">{{ __('Admin Login') }}</h2>
             <!-- <p class="mt-2 text-center text-sm text-gray-600">
                 Or <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500">{{ __('Register') }}</a>
             </p> -->
