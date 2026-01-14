@@ -16,12 +16,19 @@
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>
                     <label for="email-address" class="sr-only">{{ __('Email address') }}</label>
-                    <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="{{ __('Email address') }}" value="{{ old('email') }}">
+                    <input id="email-address" name="email" type="email" autocomplete="email"  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="{{ __('Email address') }}" value="{{ old('email') }}">
+                    @error('email')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
+                <br>
                 <div>
                     <label for="password" class="sr-only">{{ __('Password') }}</label>
-                    <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="{{ __('Password') }}">
+                    <input id="password" name="password" type="password" autocomplete="current-password" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="{{ __('Password') }}">
                 </div>
+                @error('password')
+                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="flex items-center justify-between">
