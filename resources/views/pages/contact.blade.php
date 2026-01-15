@@ -65,7 +65,7 @@
 </section>
 
 <!-- Contact Form Section -->
-<section class="contact-form-section">
+{{-- <section class="contact-form-section">
     <div class="contact-form-container">
         <div class="contact-form-content">
             <div class="contact-form-header">
@@ -171,7 +171,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <!-- Office Location Section -->
 <section class="office-location-section">

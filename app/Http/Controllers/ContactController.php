@@ -176,7 +176,7 @@ class ContactController extends Controller
             
             return redirect()
                 ->route('register')
-                ->with('success', 'Thank you for registering as a client! Welcome to DutchFix Services.');
+                ->with('success', 'Thank you for registering as a client! Welcome to Smartify Tech.');
                 
         } catch (\Exception $e) {
             \Log::error('Client registration failed: ' . $e->getMessage());

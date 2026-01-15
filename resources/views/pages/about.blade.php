@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About - DutchFix Services')
+@section('title', 'About - Smartify Tech')
 
 @section('content')
 <div class="container">
@@ -15,8 +15,8 @@
 
     <!-- About Content -->
     <div class="about-section">
-        <h1>About DutchFix Services</h1>
-        <p><strong>DutchFix Service B.V.</strong> is a leading service provider based in Rotterdam, Netherlands. We specialize in connecting suppliers with clients, providing efficient and reliable service solutions that meet the diverse needs of modern businesses.</p>
+        <h1>About Smartify Tech</h1>
+        <p><strong>Smartify Tech B.V.</strong> is a leading service provider based in Rotterdam, Netherlands. We specialize in connecting suppliers with clients, providing efficient and reliable service solutions that meet the diverse needs of modern businesses.</p>
         
         <h2>Our Mission</h2>
         <p>To bridge the gap between suppliers and clients through innovative service solutions, ensuring seamless communication and efficient business operations.</p>
@@ -58,7 +58,7 @@
     <div class="office-section">
         <h2>Visit Our Office</h2>
         <div class="office-info">
-            <p><strong>Dutchfix Service B.V.</strong></p>
+            <p><strong>Smartify Tech B.V.</strong></p>
             <p>Innsbruckweg 96</p>
             <p>3047 AH Rotterdam</p>
             <p>Finance@dutch-fix.com</p>
@@ -79,7 +79,7 @@
     <!-- Footer Links -->
     <div class="footer-links">
         <p><a href="#">Algemene Voorwaarden</a> | <a href="#">Privacy Verklaring</a></p>
-        <p>Copyright of <a href="https://libaxis.com/">LIBAXIS</a>2025 – DutchFix Service B.V.</p>
+        <p>Copyright of <a href="https://libaxis.com/">LIBAXIS</a>2025 – Smartify Tech B.V.</p>
         <p><a href="https://api.whatsapp.com/send/?phone=31687062626&text&type=phone_number&app_absent=0">WhatsApp</a></p>
     </div>
 </div>
