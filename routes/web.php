@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LocalizationController;
@@ -101,6 +102,24 @@ Route::prefix('admin')->group(function () {
 
     Route::post('/change-password-update', [AdminController::class, 'changePasswordUpdate'])
         ->name('admin.change.password.update')
+        ->middleware('auth');
+
+    Route::get('/product/add', [ProductController::class, 'productAdd'])
+        ->name('admin.product.add')
+        ->middleware('auth');
+
+    Route::post('/product/store', [ProductController::class, 'productStore'])
+        ->name('admin.product.store')
+        ->middleware('auth');
+
+    Route::get('/product/edit/{id}', [ProductController::class, 'productEdit'])
+        ->name('admin.product.edit');
+
+    Route::post('/product/update/{id}', [ProductController::class, 'productUpdate'])
+        ->name('admin.product.update');
+
+    Route::get('/product/delete/{id}', [ProductController::class, 'productDelete'])
+        ->name('admin.product.delete')
         ->middleware('auth');
 });
 

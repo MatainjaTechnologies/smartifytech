@@ -11,18 +11,30 @@
         @if(auth()->user()->role === 'superadmin')
             <div class="max-w-3xl w-full space-y-10">
 
+                {{-- ================= Page Header ================= --}}
+                <div class="flex items-center justify-between">
+                    <h2 class="text-2xl font-bold text-gray-800">
+                        Price List
+                    </h2>
+
+                    <a href="{{ route('admin.product.add') }}"
+                       class="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg shadow">
+                        <i class="fa fa-plus"></i> Add
+                    </a>
+                </div>
+
+                @if (session('success'))
+                    <div id="success-alert"
+                         class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+                        <strong>Success!</strong> {{ session('success') }}
+                    </div>
+                @endif
+
                 {{-- ================= Upload Block ================= --}}
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">
                         Upload Price List PDF
                     </h3>
-
-                    @if (session('success'))
-                        <div id="success-alert"
-                             class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-                            <strong>Success!</strong> {{ session('success') }}
-                        </div>
-                    @endif
 
                     @if ($errors->any())
                         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -67,6 +79,7 @@
                                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">File</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
                                         <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase">View</th>
+                                        <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -82,6 +95,27 @@
                                                     <i class="fa fa-eye text-lg"></i>
                                                 </a>
                                             </td>
+                                            <td class="px-4 py-2 text-center flex justify-center gap-3">
+
+                                                {{-- Edit (only if products exist) --}}
+                                                @if($price->products_count > 0)
+                                                    <a href="{{ route('admin.product.edit', $price->id) }}"
+                                                       title="Edit Price List"
+                                                       class="text-blue-600 hover:text-blue-800">
+                                                        <i class="fa fa-edit text-lg"></i>
+                                                    </a>
+                                                @endif
+
+                                                {{-- Delete --}}
+                                                <a href="{{ route('admin.product.delete', $price->id) }}"
+                                                   onclick="return confirm('Are you sure?')"
+                                                   title="Delete Price List"
+                                                   class="text-red-600 hover:text-red-800">
+                                                    <i class="fa fa-trash text-lg"></i>
+                                                </a>
+
+                                            </td>
+
                                         </tr>
                                     @endforeach
                                 </tbody>

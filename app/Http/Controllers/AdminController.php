@@ -14,7 +14,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $priceLists = Price_list::orderBy('id', 'desc')->get();
+        $priceLists = Price_list::orderBy('id', 'desc')->withCount('products')->get();
         return view('admin.index',compact('priceLists'));
     }
 
