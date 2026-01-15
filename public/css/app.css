@@ -2296,7 +2296,7 @@ small {
     font-size: 16px;
     transition: all 0.3s ease;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin-top: 10px;
+    /* margin-top: 10px; */
     position: relative;
     overflow: hidden;
 }
@@ -2320,6 +2320,93 @@ small {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
     background: linear-gradient(135deg, #5a6268 0%, #6c757d 100%);
+}
+
+/* Header Price List Button */
+.header-nav .price-list-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #dee2e6;
+    border-radius: 50px;
+    padding: 8px 16px;
+    color: #495057;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+.header-nav .price-list-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.header-nav .price-list-btn span {
+    line-height: 1;
+}
+
+.header-nav .price-list-btn:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #ced4da;
+    color: #495057;
+}
+
+/* Footer Price List Button */
+.footer-brand .price-list-btn {
+    background: linear-gradient(135deg, #5a6268 0%, #6c757d 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-brand .price-list-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(90, 98, 104, 0.3);
+    background: linear-gradient(135deg, #495057 0%, #5a6268 100%);
+}
+
+/* Mobile Responsive for Price List Button */
+@media (max-width: 992px) {
+    /* Show all navigation items including price list button */
+    .header-nav .nav-link {
+        display: block;
+    }
+    
+    /* Ensure price list button is visible */
+    .header-nav .price-list-btn {
+        display: flex;
+    }
+    
+    /* Adjust header layout for mobile - smaller gap for one line */
+    .header-nav {
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-brand .price-list-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin-top: 15px;
+    }
 }
 
 .supplier-client-section {
