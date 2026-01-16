@@ -173,4 +173,10 @@ return [
     'privacy_policy' => 'Privacy Policy',
     'cookie_policy' => 'Cookie Policy',
     'copyright' => '2026 Smartify Tech All rights reserved.',
+
+    // Terms page section titles
+    'acceptance_of_terms' => 'Acceptance of Terms',
+    'service_description' => 'Service Description',
+    'user_responsibilities' => 'User Responsibilities',
+    'contact_information' => 'Contact Information',
 ];
