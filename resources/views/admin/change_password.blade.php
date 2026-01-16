@@ -11,11 +11,20 @@
         @if(auth()->user()->role === 'superadmin')
             <div class="max-w-3xl w-full space-y-10">
 
+                {{-- ================= Page Header ================= --}}
+                <div class="flex items-center justify-between">
+                    <h2 class="text-2xl font-bold text-gray-800">
+                        Change Password
+                    </h2>
+
+                    <a href="{{ url()->previous() }}"
+                       class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg shadow text-sm font-medium">
+                        ← Back
+                    </a>
+                </div>
+
                 {{-- ================= Change Password Block ================= --}}
                 <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">
-                        Change Password
-                    </h3>
 
                     @if (session('password_success'))
                         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">

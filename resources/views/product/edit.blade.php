@@ -8,7 +8,16 @@
         <div class="flex-1 flex justify-center py-10">
             <div class="max-w-4xl w-full space-y-6">
 
-                <h2 class="text-2xl font-bold text-gray-800">Edit Price List</h2>
+                <div class="flex items-center justify-between">
+                    <h2 class="text-2xl font-bold text-gray-800">
+                        Edit Price List
+                    </h2>
+
+                    <a href="{{ url()->previous() }}"
+                       class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg shadow text-sm font-medium">
+                        ← Back
+                    </a>
+                </div>
 
                 @if (session('error'))
                     <div id="error-alert"

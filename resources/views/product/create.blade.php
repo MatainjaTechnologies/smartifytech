@@ -15,6 +15,12 @@
                 <h2 class="text-2xl font-bold text-gray-800">
                     Add Products
                 </h2>
+
+                <a href="{{ url()->previous() }}"
+                   class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg shadow text-sm font-medium">
+                    ← Back
+                </a>
+    
             </div>
 
             @if (session('error'))
