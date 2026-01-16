@@ -172,4 +172,10 @@ return [
     'privacy_policy' => 'Privacybeleid',
     'cookie_policy' => 'Cookiebeleid',
     'copyright' => '2026 Smartify Tech Alle rechten voorbehouden.',
+
+    // Terms page section titles
+    'acceptance_of_terms' => 'Acceptatie van voorwaarden',
+    'service_description' => 'Servicebeschrijving',
+    'user_responsibilities' => 'Gebruikersverantwoordelijkheden',
+    'contact_information' => 'Contactinformatie',
 ];

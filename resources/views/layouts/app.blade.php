@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/whatsapp.css') }}">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="icon" href="{{ asset('images/fav.ico') }}" type="image">
 </head>
 <body>
     <!-- WhatsApp Button - Inline Styles -->
