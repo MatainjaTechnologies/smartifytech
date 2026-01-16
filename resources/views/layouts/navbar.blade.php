@@ -3,7 +3,7 @@
     <div class="p-4 text-center border-b">
         <!-- Logo -->
         <img 
-            src="{{ asset('images/logo.png') }}" alt="Smartify Tech Logo" class="mx-auto mb-3 h-12 w-auto"/>
+            src="{{ asset('images/logo.png') }}" alt="Smartify Tech Logo" class="mx-auto mb-3 h-8 w-auto"/>
 
         <!-- Admin Panel Title -->
         <h2 class="text-2xl font-bold text-gray-800">Admin Panel</h2>
