@@ -16,7 +16,7 @@ class Registration extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'email', 'password', 'company_name', 'phone', 'type_of_business', 'legal_entity',
+        'email', 'password', 'partner_type', 'company_name', 'phone', 'type_of_business', 'legal_entity',
         'ceo_name', 'website', 'invoice_address', 'delivery_address', 'accountant_name',
         'accountant_email', 'company_reg_no', 'vat_reg_no', 'num_employees', 'date_registration',
         'bank_name', 'iban', 'bank_address', 'swift', 'country_of_bank', 'account_holder',

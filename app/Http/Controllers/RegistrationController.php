@@ -27,7 +27,8 @@ class RegistrationController extends Controller
 
         $validator = Validator::make($validatedData, [
             'email' => 'required|email|unique:registrations',
-            'password' => 'required|confirmed',
+            //'password' => 'required|confirmed',  //16.01.2026
+            'partner_type' => 'required|in:supplier,client',  //16.01.2026
             'company_name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'type_of_business' => 'required|string|max:255',
@@ -70,7 +71,8 @@ class RegistrationController extends Controller
         }
 
         $data = $validatedData;
-        $data['password'] = Hash::make($request->password);
+        // $data['password'] = Hash::make($request->password); //16.01.2026
+        $data['password'] = Hash::make('12345678');
 
         $fileFields = [
             'company_incorporation_cert',
@@ -100,7 +102,7 @@ class RegistrationController extends Controller
             ->cc($adminEmail)
             ->send(new RegistrationSuccess($registration, $pdf, $fileFields));
 
-        return redirect()->route('home')->with('success', "Registration successful! A confirmation email has been sent to {$registration->email}.");
+        return redirect('/')->with('success', "Registration successful! A confirmation email has been sent to {$registration->email}.");
     }
 
     public function validateEmail(Request $request)

@@ -57,14 +57,35 @@
                                 <label for="email" class="form-label">{{ __('messages.email_address_star') }}</label>
                                 <input type="email" id="email" name="email" class="form-input" placeholder="{{ __('messages.your_email') }}" required>
                             </div>
-                            <div class="form-group">
+                            {{--<div class="form-group">
                                 <label for="password" class="form-label">{{ __('messages.password_star') }}</label>
                                 <input type="password" id="password" name="password" class="form-input" placeholder="{{ __('messages.password') }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="password_confirmation" class="form-label">{{ __('messages.confirm_password_star') }}</label>
                                 <input type="password" id="password_confirmation" name="password_confirmation" class="form-input" placeholder="{{ __('messages.confirm_password') }}" required>
+                            </div>--}}
+                            <div class="form-group">
+                                <label for="partner_type" class="form-label">
+                                    {{ __('messages.partner_type_star') }}
+                                </label>
+
+                                <select id="partner_type" name="partner_type" class="form-input" required>
+                                    <option value="">{{ __('messages.partner_type') }}</option>
+
+                                    <option value="supplier"
+                                        {{ request('partner_type') == 'supplier' ? 'selected' : '' }}>
+                                        {{ __('messages.supplier') }}
+                                    </option>
+
+                                    <option value="client"
+                                        {{ request('partner_type') == 'client' ? 'selected' : '' }}>
+                                        {{ __('messages.client') }}
+                                    </option>
+                                </select>
                             </div>
+
+
                         </div>
                         
                         <div class="form-row">

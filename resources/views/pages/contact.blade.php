@@ -45,7 +45,7 @@
                     </svg>
                 </div>
                 <h3 class="supplier-title">{{ __('messages.supplier') }}</h3>
-                <a href="{{ route('register') }}" target="_blank" class="supplier-btn">{{ __('messages.download_list') }}</a>
+                <a href="{{ route('register', ['partner_type' => 'supplier']) }}" target="_blank" class="supplier-btn">{{ __('messages.apply') }}</a>
             </div>
             
             <div class="client-card">
@@ -58,7 +58,7 @@
                     </svg>
                 </div>
                 <h3 class="client-title">{{ __('messages.client') }}</h3>
-                <a href="{{ route('register') }}" target="_blank" class="client-btn">{{ __('messages.download_list') }}</a>
+                <a href="{{ route('register', ['partner_type' => 'client']) }}" target="_blank" class="client-btn">{{ __('messages.apply') }}</a>
             </div>
         </div>
     </div>
