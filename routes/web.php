@@ -72,6 +72,9 @@ Route::post('/validate/company-reg-no', [RegistrationController::class, 'validat
 
 Route::get('lang/{locale}', [LocalizationController::class, 'setLang'])->name('lang.switch');
 
+// PDF Preview Route (for testing)
+Route::get('/preview-registration-pdf/{id}', [RegistrationController::class, 'previewPdf'])->name('registration.pdf.preview');
+
 
 Auth::routes(['register' => false]);
 
