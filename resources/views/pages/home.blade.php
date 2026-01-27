@@ -38,7 +38,8 @@
     </div>
 </section>
 <!-- Modern About Section -->
-<section class="about-section">
+<!-- <section class="about-section"> -->
+<section id="about-section" class="about-section">
     <div class="about-container">
         <div class="about-header">
             <h2 class="about-title">{{ __('messages.about_us') }}</h2>

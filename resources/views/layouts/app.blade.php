@@ -31,7 +31,8 @@
                 </a>
             </div>
             <nav class="header-nav">
-                <a href="{{ url('/') }}" class="nav-link">{{ __('messages.About') }}</a>
+                <!-- <a href="{{ url('/') }}" class="nav-link">{{ __('messages.About') }}</a> -->
+                <a href="{{ url('/#about-section') }}" class="nav-link">{{ __('messages.About') }}</a>
                 <a href="{{ route('contact') }}" class="nav-link">{{ __('messages.Contact') }}</a>
                 <a href="{{ route('register') }}" class="nav-link">{{ __('messages.Register') }}</a>
                 {{-- <a href="{{ $priceListUrl }}" target="_blank" class="price-list-btn">
