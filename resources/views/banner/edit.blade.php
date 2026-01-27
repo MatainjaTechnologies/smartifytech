@@ -44,8 +44,9 @@
                                         Current Image
                                     </label>
 
-                                    <img src="{{url('storage/banner/'.$banner->image)}}"
-                                         class="h-32 rounded border mb-3">
+                                    <!-- <img src="{{url('storage/banner/'.$banner->image)}}"
+                                         class="h-32 rounded border mb-3"> -->
+                                    <img src="{{ asset('storage/' . $banner->image) }}" class="h-32 rounded border mb-3">
 
                                 </div>
 

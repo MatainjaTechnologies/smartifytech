@@ -37,15 +37,23 @@
             <div class="hero-right">
                 <div class="hero-image-container">
 
-                    @if(isset($banners) && $banners->count())
-                        {{-- Dynamic banners from admin --}}
+                    @if(isset($banners) && $banners->count() === 1)
+
+                        {{-- Only one active banner --}}
+                        <img src="{{ asset('storage/' . $banners->first()->image) }}" alt="Banner" class="hero-image">
+
+                    @elseif(isset($banners) && $banners->count() > 1)
+
+                        {{-- Multiple active banners --}}
                         @foreach($banners as $banner)
-                            <img src="{{ url('storage/banner/'.$banner->image) }}"
+                            <img src="{{ asset('storage/' . $banner->image) }}"
                                  alt="Banner"
                                  class="hero-image slideshow-image">
                         @endforeach
+
                     @else
-                        {{-- Fallback static images --}}
+
+                        {{-- No banner → fallback static images --}}
                         <img src="{{ asset('images/hero-image1.png') }}"
                              alt="Hero Image"
                              class="hero-image slideshow-image">
@@ -53,7 +61,9 @@
                         <img src="{{ asset('images/hero-image2.png') }}"
                              alt="Hero Image"
                              class="hero-image slideshow-image">
+
                     @endif
+
 
                     <div class="hero-image-bg"></div>
                 </div>

@@ -64,8 +64,9 @@
                                     <tr class="hover:bg-gray-50">
                                         {{-- Image --}}
                                         <td class="px-4 py-3">
-                                            <img src="{{url('storage/banner/'.$banner->image)}}"
-                                                 class="h-16 w-28 object-cover rounded border">
+                                            <!-- <img src="{{url('storage/banner/'.$banner->image)}}"
+                                                 class="h-16 w-28 object-cover rounded border"> -->
+                                            <img src="{{ asset('storage/' . $banner->image) }}" class="h-16 w-28 object-cover rounded border">
                                         </td>
 
                                         {{-- Description --}}

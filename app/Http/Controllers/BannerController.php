@@ -29,6 +29,38 @@ class BannerController extends Controller
     /**
      * Store banner
      */
+    // public function store(Request $request)
+    // {
+    //     // Only superadmin
+    //     if (auth()->user()->role !== 'superadmin') {
+    //         abort(403);
+    //     }
+
+    //     $validated = $request->validate([
+    //         'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+    //         'description' => 'nullable|string|max:255',
+    //         'status' => 'nullable|boolean',
+    //     ]);
+
+    //     // Upload Image
+    //     if ($request->hasFile('image')) {
+    //         $image = $request->file('image');
+    //         $fileName = 'banner_' . md5(uniqid()) . '.' . $image->getClientOriginalExtension();
+    //         $path = public_path().'/storage/banner';
+    //         $uplaod = $request->image->move($path,$fileName);
+    //     }
+
+    //     Banner::create([
+    //         'image' => $fileName,
+    //         'description' => $validated['description'] ?? null,
+    //         'status' => $request->has('status'),
+    //     ]);
+
+    //     return redirect()
+    //         ->route('admin.banner')
+    //         ->with('success', 'Banner created successfully.');
+    // }
+
     public function store(Request $request)
     {
         // Only superadmin
@@ -43,15 +75,10 @@ class BannerController extends Controller
         ]);
 
         // Upload Image
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $fileName = 'banner_' . md5(uniqid()) . '.' . $image->getClientOriginalExtension();
-            $path = public_path().'/storage/banner';
-            $uplaod = $request->image->move($path,$fileName);
-        }
+        $imagePath = $request->file('image')->store('banners', 'public');
 
         Banner::create([
-            'image' => $fileName,
+            'image' => $imagePath,
             'description' => $validated['description'] ?? null,
             'status' => $request->has('status'),
         ]);
@@ -73,6 +100,39 @@ class BannerController extends Controller
     /**
      * Update banner
      */
+    // public function update(Request $request, $id)
+    // {
+    //     $validated = $request->validate([
+    //         'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+    //         'description' => 'nullable|string|max:255',
+    //         'status' => 'nullable|boolean',
+    //     ]);
+
+    //     $banner = Banner::findOrFail($id);
+
+    //     if ($request->hasFile('image')) {
+
+    //         $oldPath = public_path('storage/banner/' . $banner->image);
+    //         if (file_exists($oldPath)) {
+    //             unlink($oldPath);
+    //         }
+
+    //         $image = $request->file('image');
+    //         $fileName = 'banner_' . uniqid() . '.' . $image->getClientOriginalExtension();
+    //         $image->move(public_path('storage/banner'), $fileName);
+
+    //         $banner->image = $fileName;
+    //     }
+
+    //     $banner->description = $validated['description'] ?? null;
+    //     $banner->status = $request->has('status');
+    //     $banner->save();
+
+    //     return redirect()
+    //         ->route('admin.banner')
+    //         ->with('success', 'Banner updated successfully.');
+    // }
+
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
@@ -83,18 +143,13 @@ class BannerController extends Controller
 
         $banner = Banner::findOrFail($id);
 
+        // Replace Image
         if ($request->hasFile('image')) {
-
-            $oldPath = public_path('storage/banner/' . $banner->image);
-            if (file_exists($oldPath)) {
-                unlink($oldPath);
+            if ($banner->image && Storage::disk('public')->exists($banner->image)) {
+                Storage::disk('public')->delete($banner->image);
             }
 
-            $image = $request->file('image');
-            $fileName = 'banner_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('storage/banner'), $fileName);
-
-            $banner->image = $fileName;
+            $banner->image = $request->file('image')->store('banners', 'public');
         }
 
         $banner->description = $validated['description'] ?? null;
@@ -110,6 +165,28 @@ class BannerController extends Controller
     /**
      * Delete banner
      */
+    // public function destroy($id)
+    // {
+    //     if (auth()->user()->role !== 'superadmin') {
+    //         abort(403);
+    //     }
+
+    //     $banner = Banner::findOrFail($id);
+
+    //     $imagePath = public_path('storage/banner/' . $banner->image);
+ 
+    //     // Delete file if exists
+    //     if (file_exists($imagePath)) {
+    //         unlink($imagePath);
+    //     }
+
+    //     $banner->delete();
+
+    //     return redirect()
+    //         ->route('admin.banner')
+    //         ->with('success', 'Banner deleted successfully.');
+    // }
+
     public function destroy($id)
     {
         if (auth()->user()->role !== 'superadmin') {
@@ -118,11 +195,8 @@ class BannerController extends Controller
 
         $banner = Banner::findOrFail($id);
 
-        $imagePath = public_path('storage/banner/' . $banner->image);
- 
-        // Delete file if exists
-        if (file_exists($imagePath)) {
-            unlink($imagePath);
+        if ($banner->image && Storage::disk('public')->exists($banner->image)) {
+            Storage::disk('public')->delete($banner->image);
         }
 
         $banner->delete();
