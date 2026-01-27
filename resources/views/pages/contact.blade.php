@@ -14,7 +14,7 @@
                 <div class="contact-hero-text">
                     <h1 class="contact-hero-title">{{ __('messages.contact_hero_title') }}</h1>
                     <p class="contact-hero-subtitle">{{ __('messages.contact_hero_subtitle') }}</p>
-                    <a href="{{ $priceListUrl }}" target="_blank" class="price-list-btn">
+                    {{-- <a href="{{ $priceListUrl }}" target="_blank" class="price-list-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                             <polyline points="14,2 14,8 20,8"/>
@@ -22,7 +22,7 @@
                             <line x1="16" y1="17" x2="8" y2="17"/>
                         </svg>
                         <span>{{ __('messages.price_list') }}</span>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
             <div class="contact-hero-right">
@@ -33,7 +33,7 @@
 </section>
 
 <!-- Supplier/Client Section -->
-<section class="supplier-client-section">
+{{-- <section class="supplier-client-section">
     <div class="supplier-client-container">
         <div class="supplier-client-grid">
             <div class="supplier-card">
@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <!-- Contact Form Section -->
 {{-- <section class="contact-form-section">
