@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use App\Models\Banner;
 
 class PagesController extends Controller
 {
@@ -17,7 +18,8 @@ class PagesController extends Controller
      */
     public function home(): View
     {
-        return view('pages.home');
+        $banners = Banner::active()->latest()->get();
+        return view('pages.home', compact('banners'));
     }
 
     /**

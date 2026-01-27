@@ -24,6 +24,12 @@
                 Change Password
             </a>
 
+            <a href="{{ route('admin.banner') }}"
+               class="block py-2 px-4
+               {{ request()->is('admin/banner') ? 'bg-blue-600 text-white' : 'text-gray-700' }}">
+                Banner List
+            </a>
+
         @endif
     </nav>
 

@@ -27,13 +27,38 @@
                     <a href="{{ route('register') }}" class="btn-secondary">{{ __('messages.register_now') }}</a>
                 </div>
             </div>
-            <div class="hero-right">
+            {{-- <div class="hero-right">
                 <div class="hero-image-container">
                     <img src="{{ asset('images/hero-image1.png') }}" alt="iPhone" class="hero-image slideshow-image">
                     <img src="{{ asset('images/hero-image2.png') }}" alt="iPhone" class="hero-image slideshow-image">
                     <div class="hero-image-bg"></div>
                 </div>
+            </div> --}}
+            <div class="hero-right">
+                <div class="hero-image-container">
+
+                    @if(isset($banners) && $banners->count())
+                        {{-- Dynamic banners from admin --}}
+                        @foreach($banners as $banner)
+                            <img src="{{ url('storage/banner/'.$banner->image) }}"
+                                 alt="Banner"
+                                 class="hero-image slideshow-image">
+                        @endforeach
+                    @else
+                        {{-- Fallback static images --}}
+                        <img src="{{ asset('images/hero-image1.png') }}"
+                             alt="Hero Image"
+                             class="hero-image slideshow-image">
+
+                        <img src="{{ asset('images/hero-image2.png') }}"
+                             alt="Hero Image"
+                             class="hero-image slideshow-image">
+                    @endif
+
+                    <div class="hero-image-bg"></div>
+                </div>
             </div>
+
         </div>
     </div>
 </section>

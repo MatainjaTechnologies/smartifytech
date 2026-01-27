@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\LocalizationController;
 
 /*
@@ -81,49 +82,58 @@ Auth::routes(['register' => false]);
 Route::prefix('admin')->group(function () {
 
     Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])
-        ->name('admin.login')
-        ->middleware('guest');
+        ->name('admin.login')->middleware('guest');
 
     Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])
-        ->name('admin.login.submit')
-        ->middleware('guest');
+        ->name('admin.login.submit')->middleware('guest');
 
     Route::get('/dashboard', [AdminController::class, 'index'])
-        ->name('admin.index')
-        ->middleware('auth');
+        ->name('admin.index')->middleware('auth');
 
     Route::post('/upload', [AdminController::class, 'upload'])
-        ->name('admin.upload')
-        ->middleware('auth');
+        ->name('admin.upload')->middleware('auth');
 
     Route::get('/storage/pricelists/{filename}', [AdminController::class, 'showPriceList'])
         ->name('admin.pricelist.show');
 
     Route::get('/change-password', [AdminController::class, 'changePasswordForm'])
-        ->name('admin.change.password')
-        ->middleware('auth');
+        ->name('admin.change.password')->middleware('auth');
 
     Route::post('/change-password-update', [AdminController::class, 'changePasswordUpdate'])
-        ->name('admin.change.password.update')
-        ->middleware('auth');
+        ->name('admin.change.password.update')->middleware('auth');
 
     Route::get('/product/add', [ProductController::class, 'productAdd'])
-        ->name('admin.product.add')
-        ->middleware('auth');
+        ->name('admin.product.add')->middleware('auth');
 
     Route::post('/product/store', [ProductController::class, 'productStore'])
-        ->name('admin.product.store')
-        ->middleware('auth');
+        ->name('admin.product.store')->middleware('auth');
 
     Route::get('/product/edit/{id}', [ProductController::class, 'productEdit'])
         ->name('admin.product.edit');
 
-    Route::post('/product/update/{id}', [ProductController::class, 'productUpdate'])
-        ->name('admin.product.update');
+    Route::post('/product/update/{id}', [ProductController::class, 'productUpdate'])->name('admin.product.update');
 
     Route::get('/product/delete/{id}', [ProductController::class, 'productDelete'])
-        ->name('admin.product.delete')
-        ->middleware('auth');
+        ->name('admin.product.delete')->middleware('auth');
+
+    Route::get('/banner', [BannerController::class, 'index'])
+        ->name('admin.banner')->middleware('auth');
+
+    Route::get('/banner/create', [BannerController::class, 'create'])
+        ->name('admin.banner.create')->middleware('auth');
+
+    Route::post('/banner/store', [BannerController::class, 'store'])
+        ->name('admin.banner.store')->middleware('auth');
+
+    Route::get('/banner/edit/{id}', [BannerController::class, 'edit'])
+        ->name('admin.banner.edit');
+
+    Route::post('/banner/update/{id}', [BannerController::class, 'update'])
+        ->name('admin.banner.update');
+
+    Route::post('/banner/destroy/{id}', [BannerController::class, 'destroy'])
+        ->name('admin.banner.destroy')->middleware('auth');
+
 });
 
 
