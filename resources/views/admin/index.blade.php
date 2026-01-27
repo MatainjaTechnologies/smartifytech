@@ -79,6 +79,7 @@
                                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">File</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
                                         <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase">View</th>
+                                        <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase">Copy Link</th>
                                         <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase">Action</th>
                                     </tr>
                                 </thead>
@@ -95,6 +96,16 @@
                                                     <i class="fa fa-eye text-lg"></i>
                                                 </a>
                                             </td>
+                                            <td class="px-4 py-2 text-center">
+                                                <button
+                                                    onclick="copyToClipboard('{{ asset('storage/pricelists/'.$price->file_name) }}')"
+                                                    title="Copy PDF Link"
+                                                    class="text-green-600 hover:text-green-800"
+                                                >
+                                                    <i class="fa fa-copy text-lg"></i>
+                                                </button>
+                                            </td>
+
                                             <td class="px-4 py-2 text-center flex justify-center gap-3">
 
                                                 {{-- Edit (only if products exist) --}}
@@ -139,24 +150,30 @@
 
 {{-- Scripts --}}
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
 
-    const fileInput = document.getElementById('price_list');
-    const fileName = document.getElementById('file-name');
+        const fileInput = document.getElementById('price_list');
+        const fileName = document.getElementById('file-name');
 
-    if (fileInput) {
-        fileInput.addEventListener('change', function () {
-            fileName.textContent = this.files[0]?.name || 'No file selected';
+        if (fileInput) {
+            fileInput.addEventListener('change', function () {
+                fileName.textContent = this.files[0]?.name || 'No file selected';
+            });
+        }
+
+        const alert = document.getElementById('success-alert');
+        if (alert) {
+            setTimeout(() => {
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 500);
+            }, 10000);
+        }
+    });
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function () {
+            alert("Link copied:\n" + text);
         });
     }
-
-    const alert = document.getElementById('success-alert');
-    if (alert) {
-        setTimeout(() => {
-            alert.style.opacity = '0';
-            setTimeout(() => alert.remove(), 500);
-        }, 10000);
-    }
-});
 </script>
 @endsection
