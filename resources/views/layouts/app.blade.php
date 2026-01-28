@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="{{ asset('css/whatsapp.css') }}">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="icon" href="{{ asset('images/fav.ico') }}" type="image">
+
+    <meta property="og:title" content="Smartify Tech - Your Trusted Partner in Consumer Electronics" />
+    <meta property="og:description" content="Trusted specialist wholesaler of electronic devices with competitive pricing and reliable bulk supply.">
+    <meta property="og:url" content="{{url()->current()}}" />
+    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+    <meta name="author" content="Smartify Tech Team">
+    <meta name="robots" content="index, follow">
+
 </head>
 <body>
     <!-- WhatsApp Button - Inline Styles -->

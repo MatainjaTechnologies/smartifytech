@@ -15,7 +15,7 @@
             <a href="{{ route('admin.index') }}"
                class="block py-2 px-4
                {{ request()->is('admin/dashboard') ? 'bg-blue-600 text-white' : 'text-gray-700' }}">
-                Price List Upload
+                Product Price 
             </a>
 
             <a href="{{ route('admin.change.password') }}"
