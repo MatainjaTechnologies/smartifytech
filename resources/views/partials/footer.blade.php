@@ -20,7 +20,7 @@
                     <div class="footer-column">
                         <h3 class="footer-title">{{ __('messages.quick_links') }}</h3>
                         <ul class="footer-list">
-                            <li><a href="{{ route('home') }}" class="footer-link">{{ __('messages.about_us') }}</a></li>
+                            <li><a href="{{ url('/#about-section') }}" class="footer-link">{{ __('messages.about_us') }}</a></li>
                             <li><a href="{{ route('contact') }}" class="footer-link">{{ __('messages.Contact') }}</a></li>
                             <li><a href="{{ route('register') }}" class="footer-link">{{ __('messages.Register') }}</a></li>
                         </ul>
