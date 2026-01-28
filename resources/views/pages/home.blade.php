@@ -27,43 +27,59 @@
                     <a href="{{ route('register') }}" class="btn-secondary">{{ __('messages.register_now') }}</a>
                 </div>
             </div>
+            
             {{-- <div class="hero-right">
-                <div class="hero-image-container">
-                    <img src="{{ asset('images/hero-image1.png') }}" alt="iPhone" class="hero-image slideshow-image">
-                    <img src="{{ asset('images/hero-image2.png') }}" alt="iPhone" class="hero-image slideshow-image">
-                    <div class="hero-image-bg"></div>
-                </div>
-            </div> --}}
-            <div class="hero-right">
                 <div class="hero-image-container">
 
                     @if(isset($banners) && $banners->count() === 1)
-
-                        {{-- Only one active banner --}}
                         <img src="{{ asset('storage/' . $banners->first()->image) }}" alt="Banner" class="hero-image">
-
                     @elseif(isset($banners) && $banners->count() > 1)
-
-                        {{-- Multiple active banners --}}
                         @foreach($banners as $banner)
                             <img src="{{ asset('storage/' . $banner->image) }}"
                                  alt="Banner"
                                  class="hero-image slideshow-image">
                         @endforeach
-
                     @else
-
-                        {{-- No banner → fallback static images --}}
                         <img src="{{ asset('images/hero-image1.png') }}"
                              alt="Hero Image"
                              class="hero-image slideshow-image">
-
                         <img src="{{ asset('images/hero-image2.png') }}"
                              alt="Hero Image"
                              class="hero-image slideshow-image">
-
                     @endif
+                    <div class="hero-image-bg"></div>
+                </div>
+            </div> --}}
 
+            <div class="hero-right">
+                <div class="hero-image-container"
+                     style="position: relative; width: 100%; height: 420px; overflow: hidden;">
+
+                    @if(isset($banners) && $banners->count())
+                        @foreach($banners as $index => $banner)
+                            <img
+                                src="{{ asset('storage/' . $banner->image) }}"
+                                alt="Banner"
+                                data-slide
+                                style="
+                                    position: absolute;
+                                    inset: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: contain;
+                                    opacity: {{ $index === 0 ? '1' : '0' }};
+                                    transition: opacity 1s ease-in-out;
+                                "
+                            >
+                        @endforeach
+                    @else
+                        <img src="{{ asset('images/hero-image1.png') }}"
+                             alt="Hero Image"
+                             class="hero-image slideshow-image">
+                        <img src="{{ asset('images/hero-image2.png') }}"
+                             alt="Hero Image"
+                             class="hero-image slideshow-image">
+                    @endif
 
                     <div class="hero-image-bg"></div>
                 </div>
@@ -72,6 +88,7 @@
         </div>
     </div>
 </section>
+
 <!-- Modern About Section -->
 <!-- <section class="about-section"> -->
 <section id="about-section" class="about-section">
@@ -171,3 +188,19 @@
 </section>
 
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const slides = document.querySelectorAll('[data-slide]');
+        let current = 0;
+
+        if (slides.length <= 1) return;
+
+        setInterval(() => {
+            slides[current].style.opacity = '0';
+            current = (current + 1) % slides.length;
+            slides[current].style.opacity = '1';
+        }, 4000); // change slide every 4 seconds
+    });
+</script>
+
