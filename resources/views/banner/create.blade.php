@@ -77,12 +77,19 @@
                             </div>
 
                             {{-- Status --}}
-                            <div class="flex items-center gap-2">
-                                <input type="checkbox" name="status" value="1"
-                                       class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                       checked>
-                                <span class="text-sm text-gray-700">Active</span>
+                            <div class="flex items-center gap-3">
+                                <label for="status" class="flex items-center cursor-pointer">
+                                    <!-- Switch -->
+                                    <div class="relative">
+                                        <input type="checkbox" name="status" id="status" value="1" class="sr-only peer" checked>
+                                        <div class="w-11 h-6 bg-gray-300 rounded-full peer-focus:ring-2 peer-focus:ring-indigo-500 peer-checked:bg-indigo-600 transition-colors"></div>
+                                        <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow-md transform peer-checked:translate-x-5 transition-transform"></div>
+                                    </div>
+                                    <!-- Label -->
+                                    <span class="ml-3 text-sm font-medium text-gray-700">Active / Inactive</span>
+                                </label>
                             </div>
+
 
                             {{-- Submit --}}
                             <button type="submit"
