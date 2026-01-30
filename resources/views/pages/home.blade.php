@@ -10,7 +10,7 @@
     </div>
 @endif
 <!-- Modern Hero Section -->
-<section class="hero-section" style="background-color: white;">
+{{-- <section class="hero-section" style="background-color: white;">
     <div class="hero-container">
         <div class="hero-content">
             <div class="hero-left">
@@ -27,29 +27,6 @@
                     <a href="{{ route('register') }}" class="btn-secondary">{{ __('messages.register_now') }}</a>
                 </div>
             </div>
-            
-            {{-- <div class="hero-right">
-                <div class="hero-image-container">
-
-                    @if(isset($banners) && $banners->count() === 1)
-                        <img src="{{ asset('storage/' . $banners->first()->image) }}" alt="Banner" class="hero-image">
-                    @elseif(isset($banners) && $banners->count() > 1)
-                        @foreach($banners as $banner)
-                            <img src="{{ asset('storage/' . $banner->image) }}"
-                                 alt="Banner"
-                                 class="hero-image slideshow-image">
-                        @endforeach
-                    @else
-                        <img src="{{ asset('images/hero-image1.png') }}"
-                             alt="Hero Image"
-                             class="hero-image slideshow-image">
-                        <img src="{{ asset('images/hero-image2.png') }}"
-                             alt="Hero Image"
-                             class="hero-image slideshow-image">
-                    @endif
-                    <div class="hero-image-bg"></div>
-                </div>
-            </div> --}}
 
             <div class="hero-right">
                 <div class="hero-image-container"
@@ -86,6 +63,21 @@
             </div>
 
         </div>
+    </div>
+</section> --}}
+
+<section style="width:100vw;height:100vh;overflow:hidden;">
+    <div style="position:relative;width:100%;height:100%;background:#000;">
+
+        @if(isset($banners) && $banners->count())
+            @foreach($banners as $index => $banner)
+                <img src="{{ asset('storage/' . $banner->image) }}" alt="Banner" data-slide
+                    style="position:absolute;inset:0;width:100%;height:100%;object-fit: cover;object-position: center;opacity: {{ $index === 0 ? '1' : '0' }};transition: opacity 1s ease-in-out;">
+            @endforeach
+        @else
+            <img src="{{ asset('images/hero-image1.png') }}" alt="Hero Banner" style="position: absolute;inset: 0;width: 100%;height: 100%;object-fit: cover;">
+        @endif
+
     </div>
 </section>
 
