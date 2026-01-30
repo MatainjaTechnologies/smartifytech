@@ -66,16 +66,22 @@
     </div>
 </section> --}}
 
-<section style="width:100vw;height:100vh;overflow:hidden;">
-    <div style="position:relative;width:100%;height:100%;background:#000;">
+<section class="hero-container1">
+    <div class="banner-frame">
 
         @if(isset($banners) && $banners->count())
             @foreach($banners as $index => $banner)
-                <img src="{{ asset('storage/' . $banner->image) }}" alt="Banner" data-slide
-                    style="position:absolute;inset:0;width:100%;height:100%;object-fit: cover;object-position: center;opacity: {{ $index === 0 ? '1' : '0' }};transition: opacity 1s ease-in-out;">
+                <img src="{{ asset('storage/' . $banner->image) }}" 
+                     alt="Banner" 
+                     class="banner-img"
+                     data-slide
+                     style="opacity: {{ $index === 0 ? '1' : '0' }};">
             @endforeach
         @else
-            <img src="{{ asset('images/hero-image1.png') }}" alt="Hero Banner" style="position: absolute;inset: 0;width: 100%;height: 100%;object-fit: cover;">
+            <img src="{{ asset('images/hero-image1.png') }}" 
+                 alt="Hero Banner" 
+                 class="banner-img"
+                 style="opacity: 1;">
         @endif
 
     </div>
