@@ -39,7 +39,7 @@
 <body>
 
     <!-- Letterhead -->
-    <img src="{{ public_path('letterhead/letterhead.jpg') }}" class="letterhead">
+    <img src="{{ public_path('letterhead/letterhead2.png') }}" class="letterhead">
 
     <!-- Content -->
     <div class="content">
