@@ -51,14 +51,23 @@
                                 </div>
 
                                 {{-- Banner Image --}}
+                                {{-- Banner Image --}}
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                                        Change Image
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        Banner Image
                                     </label>
+
+                                    {{-- Image Preview --}}
+                                    <div class="mb-3">
+                                        <img id="imagePreview"
+                                             src="{{ asset('storage/' . $banner->image) }}"
+                                             class="h-32 w-full object-cover rounded border shadow">
+                                    </div>
 
                                     <input type="file"
                                            name="image"
                                            accept="image/*"
+                                           onchange="previewEditBannerImage(event)"
                                            class="w-full bg-gray-100 border border-gray-300 text-gray-900 rounded-md shadow-sm
                                                   focus:bg-white focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600
                                                   @error('image') border-red-600 ring-1 ring-red-500 @enderror">
@@ -71,6 +80,7 @@
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                     @enderror
                                 </div>
+
 
                                 {{-- Description --}}
                                 <div>
@@ -126,3 +136,21 @@
 
     </div>
 @endsection
+
+<script>
+    function previewEditBannerImage(event) {
+        const input = event.target;
+        const previewImage = document.getElementById('imagePreview');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                previewImage.src = e.target.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+

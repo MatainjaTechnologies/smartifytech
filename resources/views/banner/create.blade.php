@@ -46,18 +46,27 @@
                                 <input type="file"
                                        name="image"
                                        accept="image/*"
+                                       onchange="previewBannerImage(event)"
                                        class="w-full bg-gray-100 border border-gray-300 text-gray-900 rounded-md shadow-sm
                                               focus:bg-white focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600
                                               @error('image') border-red-600 ring-1 ring-red-500 @enderror">
 
                                 <p class="text-xs text-gray-500 mt-1">
-                                    Recommended size: 1200 × 400 px
+                                    Recommended size: 1950 × 700 px
                                 </p>
+
+                                {{-- Image Preview --}}
+                                <div id="imagePreviewWrapper" class="mt-4 hidden">
+                                    <p class="text-sm font-medium text-gray-600 mb-1">Preview:</p>
+                                    <img id="imagePreview"
+                                         class="w-full max-h-64 object-cover rounded-lg border shadow">
+                                </div>
 
                                 @error('image')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
+
 
                             {{-- Description --}}
                             <div>
@@ -116,3 +125,26 @@
 
 
 @endsection
+
+<script>
+    function previewBannerImage(event) {
+        const input = event.target;
+        const previewWrapper = document.getElementById('imagePreviewWrapper');
+        const previewImage = document.getElementById('imagePreview');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                previewImage.src = e.target.result;
+                previewWrapper.classList.remove('hidden');
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            previewWrapper.classList.add('hidden');
+            previewImage.src = '';
+        }
+    }
+</script>
+
