@@ -66,7 +66,7 @@
     </div>
 </section> --}}
 
-<section class="hero-container1">
+<section class="hero-container-home">
     <div class="banner-frame">
 
         @if(isset($banners) && $banners->count())

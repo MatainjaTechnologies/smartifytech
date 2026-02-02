@@ -4184,7 +4184,7 @@ body {
 
 /* Home Page */
 /* Desktop View - Full Block Style */
-.hero-container1 {
+.hero-container-home {
     padding: 0; /* Removed padding to touch the edges */
     width: 100%;
     height: 75dvh; 
@@ -4215,7 +4215,7 @@ body {
 
 /* Mobile View Responsive */
 @media (max-width: 768px) {
-    .hero-container1 {
+    .hero-container-home {
         padding: 0; /* Ensure no padding on mobile */
         height: 50dvh; 
     }
