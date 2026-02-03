@@ -4199,14 +4199,14 @@ body {
     height: 100%;
     overflow: hidden;
     border-radius: 0; /* Set to 0 to remove rounded corners */
-    background: #ffffff;
+    background: #000;
 }
 
 .banner-img {
     position: absolute; 
     inset: 0; 
     width: 100%; 
-    /*height: 100%; */
+    height: 100%; 
     object-fit: cover; 
     object-position: center; 
     display: block;
@@ -4214,19 +4214,14 @@ body {
 }
 
 /* Mobile View Responsive */
-/* Mobile View Responsive */
 @media (max-width: 768px) {
     .hero-container-home {
-        /* aspect-ratio is often better than fixed height for banners */
-        height: 60dvh; 
-        min-height: 400px; /* Prevents it from getting too small on short phones */
+        padding: 0; /* Ensure no padding on mobile */
+        height: 50dvh; 
     }
 
-    .banner-img {
-        /* Ensure the image definitely covers the area */
-        height: 100% !important; 
-        width: 100%;
-        object-fit: cover;
+    .banner-frame {
+        border-radius: 0; /* Ensure sharp corners on mobile */
     }
 }
 
