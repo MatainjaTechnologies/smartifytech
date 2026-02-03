@@ -4214,14 +4214,19 @@ body {
 }
 
 /* Mobile View Responsive */
+/* Mobile View Responsive */
 @media (max-width: 768px) {
     .hero-container-home {
-        padding: 0; /* Ensure no padding on mobile */
-        height: 50dvh; 
+        /* aspect-ratio is often better than fixed height for banners */
+        height: 60dvh; 
+        min-height: 400px; /* Prevents it from getting too small on short phones */
     }
 
-    .banner-frame {
-        border-radius: 0; /* Ensure sharp corners on mobile */
+    .banner-img {
+        /* Ensure the image definitely covers the area */
+        height: 100% !important; 
+        width: 100%;
+        object-fit: cover;
     }
 }
 
