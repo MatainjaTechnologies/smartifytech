@@ -4199,14 +4199,14 @@ body {
     height: 100%;
     overflow: hidden;
     border-radius: 0; /* Set to 0 to remove rounded corners */
-    background: #000;
+    background: #ffffff;
 }
 
 .banner-img {
     position: absolute; 
     inset: 0; 
     width: 100%; 
-    height: 100%; 
+    /*height: 100%; */
     object-fit: cover; 
     object-position: center; 
     display: block;
