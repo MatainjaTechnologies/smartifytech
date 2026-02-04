@@ -4219,7 +4219,7 @@ body {
     .hero-container-home {
         padding: 0; /* Ensure no padding on mobile */
         /*height: 50dvh; */
-        height: 30dvh;
+        height: 25dvh;
     }
 
     .banner-frame {
