@@ -69,20 +69,22 @@
 <section class="hero-container-home">
     <div class="banner-frame">
 
-        @if(isset($banners) && $banners->count())
-            @foreach($banners as $index => $banner)
-                <img src="{{ asset('storage/' . $banner->image) }}" 
-                     alt="Banner" 
+        <a href="https://api.whatsapp.com/send/?phone=32465595848&text&type=phone_number&app_absent=0">
+            @if(isset($banners) && $banners->count())
+                @foreach($banners as $index => $banner)
+                    <img src="{{ asset('storage/' . $banner->image) }}" 
+                         alt="Banner" 
+                         class="banner-img"
+                         data-slide
+                         style="opacity: {{ $index === 0 ? '1' : '0' }};">
+                @endforeach
+            @else
+                <img src="{{ asset('images/hero-image1.png') }}" 
+                     alt="Hero Banner" 
                      class="banner-img"
-                     data-slide
-                     style="opacity: {{ $index === 0 ? '1' : '0' }};">
-            @endforeach
-        @else
-            <img src="{{ asset('images/hero-image1.png') }}" 
-                 alt="Hero Banner" 
-                 class="banner-img"
-                 style="opacity: 1;">
-        @endif
+                     style="opacity: 1;">
+            @endif
+        </a>
 
     </div>
 </section>
