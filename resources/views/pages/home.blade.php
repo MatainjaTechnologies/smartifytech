@@ -69,7 +69,7 @@
 <section class="hero-container-home">
     <div class="banner-frame">
 
-        <a href="https://api.whatsapp.com/send/?phone=32465595848&text&type=phone_number&app_absent=0">
+        <a href="https://api.whatsapp.com/send/?phone=32465595848&text&type=phone_number&app_absent=0" target="_blank">
             @if(isset($banners) && $banners->count())
                 @foreach($banners as $index => $banner)
                     <img src="{{ asset('storage/' . $banner->image) }}" 
